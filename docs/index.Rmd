@@ -12,9 +12,30 @@ This will be the R learners website for the summer! Most all of my resources wil
 
 ## First meeting
 
-1. Topics to cover
-2. When & how often to meet
-3. Downloaded and working with R successfully
+#### To do
+1. Topics to cover - see below
+2. How these should work
+    + homework?
+    + lectures? 
+    + in-session activities with data provided?
+    + working with own data? 
+3. When & how often to meet
+
+
+
+#### Potential topics
+
++ Data management with the `tidyverse` package(s). Would probably suggest two weeks of this.
+    + Types of variables in R -- factors are the most unique to R specifically
++ Working with objects in R - what are they, how, and why??? `r emo::ji("symbols_over_mouth")`
++ Descriptive statistics in R
+    + There are many, many packages - how to choose? 
+    + Overview with `skimr`
+    + Making sense of missing data with `naniar` package
+    + Full tables with `tableone`
+    + There's also `stargazer` and some others
++ R markdown & GitHub & GitHub pages (how I am making this website)
++ Advanced foray: shiny apps. I don't know that much about this, but I want to learn too!
 
 ## Getting started
 
@@ -38,6 +59,13 @@ This is my own compilation of useful R tidbits that don't have a good place to l
     + 'restore .Rdata' is unchecked
     + saving .Rdata is set to 'Never'
     + 'always save history' is unchecked. 
++ Emojis in R markdown
+    + Install by: `devtools::install_github("hadley/emo")` (need `devtools` package installed)
+    + [emoji package](https://github.com/hadley/emo)
+    + [Emoji search](https://emoji.muan.co/)
+    
+    
+
     
     
     
