@@ -1,16 +1,43 @@
 ---
-title: ""
+title: "HPM R learners - Summer 2020"
 output: html_document
 ---
 
 
 Last Updated `r format(Sys.Date(), format="%m/%d/%Y")`
 
-# HPM R learning - Summer 2020 {.tabset}
+# {.tabset}
 
-## Things
+This will be the R learners website for the summer! Most all of my resources will be posted here. 
+
+## First meeting
+
+1. Topics to cover
+2. When & how often to meet
+3. Downloaded and working with R successfully
+
+## Getting started
+
+You have two options for how to access and use R
+
+1. Use R through R studio on your actual computer
+    + Download R v4.0.0 [here](http://archive.linux.duke.edu/cran/)
+    + Download R studio [here](https://rstudio.com/products/rstudio/download/#download)
+
+2. Use [rstudio.cloud](rstudio.cloud) without the commitment of installing on your computer. *disclaimer: I don't know as much / anything about this*
+    + Don't have to download R software and the R studio wrapper
+    + Possibly less functional for all the bells and whistles -- not sure about GitHub integration, etc. But probably just fine for learning the basics, and much less potential annoyance with installations, etc. 
+
+
+## Resources
+
+This is my own compilation of useful R tidbits that don't have a good place to live, and my go-to resources for various things in R. 
+
 
 + Tools > Global Options > General > Make sure the following things are done. Best practice for reproducible work!
-    + restore .Rdata is unchecked
+    + 'restore .Rdata' is unchecked
     + saving .Rdata is set to 'Never'
     + 'always save history' is unchecked. 
+    
+    
+    
