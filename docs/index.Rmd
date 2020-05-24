@@ -27,13 +27,18 @@ This will be the R learners website for the summer! Most all of my resources wil
 
 + Data management with the `tidyverse` package(s). Would probably suggest two weeks of this.
     + Types of variables in R -- factors are the most unique to R specifically
+    + Merging, subsetting, and transposing data
+    + Creating new variables
 + Working with objects in R - what are they, how, and why??? `r emo::ji("symbols_over_mouth")`
 + Descriptive statistics in R
     + There are many, many packages - how to choose? 
     + Overview with `skimr`
-    + Making sense of missing data with `naniar` package
+    + Missing data with `naniar` package
     + Full tables with `tableone`
     + There's also `stargazer` and some others
++ Basic modeling
++ Other stat topics? 
++ Plotting with R
 + R markdown & GitHub & GitHub pages (how I am making this website)
 + Advanced foray: shiny apps. I don't know that much about this, but I want to learn too!
 
@@ -63,6 +68,12 @@ This is my own compilation of useful R tidbits that don't have a good place to l
     + Install by: `devtools::install_github("hadley/emo")` (need `devtools` package installed)
     + [emoji package](https://github.com/hadley/emo)
     + [Emoji search](https://emoji.muan.co/)
++ [Google it](https://twitter.com/andrewheiss/status/1263652454329208839)
++ Online resources
+    + Intro to `naniar` package [here](https://allisonhorst.shinyapps.io/missingexplorer/#section-introduction)
+    + *Amazing* `tidyverse` and `ggplot` intros by [Andrew Heiss](https://twitter.com/andrewheiss) [here](https://datavizm20.classes.andrewheiss.com/)
+    + R studio cheatsheets [here](https://rstudio.com/resources/cheatsheets/)
+    
     
     
 
