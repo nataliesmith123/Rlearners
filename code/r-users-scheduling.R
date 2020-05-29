@@ -3,11 +3,14 @@
 
 library(tidyverse)
 
-rusersOrig <- readxl::read_excel("../docs/R users group list 0527_136PM.xlsx")
+rusersOrig <- readxl::read_excel("../data/R users group list 0527_136PM.xlsx")
+
+
+# I promise I will annotate this soon!
 
 rusers <- rusersOrig %>%
   
-  filter(Q3 != "Your name") %>%
+  filter(StartDate != "Start Date") %>%
   
   select(morning = Q2_1, 
          midday = Q2_2, 
