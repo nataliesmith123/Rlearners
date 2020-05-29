@@ -25,7 +25,7 @@ This will be very casual -- kids, pets, eating are all okay! Interupt me anytime
 First month of topics: 
 
 + June 1: Workflows in R - projects, scripts, and markdown files. Integration with GitHub -- what is git & why you should use it, and using GitHub pages to make easy-to-access html webpages for your projects!
-+ June 8: What are R objects, and why do I have to care? Begin data management in R -- using the `tidyverse`
++ June 8: What are R objects, and why do I have to care? Types of variables in R - factors! Begin data management in R -- using the `tidyverse`
 + June 15: Natalie unavailable -- take week off, or someone else lead a session? Descriptive statistics in R? Can share my code for this and people work independently, or someone else moderate? 
 + June 22: Begin plotting!
 + June 29: Continue plotting! 
@@ -54,8 +54,15 @@ First month of topics:
 
 #### Meeting times
 
-```{r timeGraph, message=FALSE, warning=FALSE}
+Some fun data management to wrangle our data into shape for graphing
+```{r dm, message=FALSE, warning=FALSE}
 ```
+
+Now let's make a beautiful graph
+```{r graph}
+```
+
+
 
 
 
@@ -75,6 +82,28 @@ Two general options for how to access and use R
     + Not necessary to use R. Is necessary to make a website (like this one) and use GitHub for collaborations, etc. 
     
 4. *Optional* Download [GitHub Desktop](https://desktop.github.com/). This is an interface that makes git not-scary and allows you to easily commit, push, and pull from your online GitHub account. 
+
+
+## Sessions {.tabset}
+
+### June 8 - Workflows
+
+Specific things to cover:
++ R projects. Relative file paths, folder structure, etc. 
++ R scripts. Installing packages. Loading packages. File names, integrating with Markdown. 
++ R markdown. First steps. Knitting to pdf vs. html. Chunks. Pros and cons of code-in-scripts vs. code-in-markdown. 
++ GitHub integration. Integrating repositories with R projects, gitignore files, committing, pushing, pulling. 
++ Making project website with GitHub pages. 
+
+Exercises: 
++ Clone an example repository [add link here](github.com)
++ Pull 
++ Make a change to the markdown file with your name and email address.
++ Push
++ Did the website update?
+
+
+
 
 
 ## Resources
