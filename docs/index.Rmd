@@ -3,6 +3,10 @@ title: "HPM R learners - Summer 2020"
 output: html_document
 ---
 
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::read_chunk("../code/r-users-scheduling.r")
+```
 
 Last Updated `r format(Sys.Date(), format="%m/%d/%Y")`
 
@@ -29,22 +33,29 @@ This will be the R learners website for the summer! Most all of my resources wil
     + Types of variables in R -- factors are the most unique to R specifically
     + Merging, subsetting, and transposing data
     + Creating new variables
-+ Working with objects in R - what are they, how, and why??? `r emo::ji("symbols_over_mouth")`
++ Working with objects in R - what are they, how, and why??? `r emo::ji("angry")`
 + Descriptive statistics in R
     + There are many, many packages - how to choose? 
     + Overview with `skimr`
     + Missing data with `naniar` package
     + Full tables with `tableone`
     + There's also `stargazer` and some others
-+ Basic modeling
++ Basic modeling - lm, logistic, others?
 + Other stat topics? 
-+ Plotting with R
-+ R markdown & GitHub & GitHub pages (how I am making this website)
-+ Advanced foray: shiny apps. I don't know that much about this, but I want to learn too!
++ Plotting with R - endless `ggplot2` options here! Can review all sorts of x-y plots, there are some new options for making maps. 
++ R projects, R markdown, GitHub, & GitHub pages (how I am making this website, very nice for collabs)
+
+
+#### Meeting times
+
+```{r timeGraph, message=FALSE, warning=FALSE}
+```
+
+
 
 ## Getting started
 
-You have two options for how to access and use R
+Two general options for how to access and use R
 
 1. Use R through R studio on your actual computer
     + Download R v4.0.0 [here](http://archive.linux.duke.edu/cran/)
@@ -71,9 +82,15 @@ This is my own compilation of useful R tidbits that don't have a good place to l
 + [Google it](https://twitter.com/andrewheiss/status/1263652454329208839)
 + Online resources
     + Intro to `naniar` package [here](https://allisonhorst.shinyapps.io/missingexplorer/#section-introduction)
-    + *Amazing* `tidyverse` and `ggplot` intros by [Andrew Heiss](https://twitter.com/andrewheiss) [here](https://datavizm20.classes.andrewheiss.com/)
+    + *Very good* `ggplot` intro by [Andrew Heiss](https://twitter.com/andrewheiss) [here](https://datavizm20.classes.andrewheiss.com/). Also some `tidyverse` but not enough to fully understand it
     + R studio cheatsheets [here](https://rstudio.com/resources/cheatsheets/)
-    
++ Guide for good coding in social sciences, from some economists [here](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf). R is great because you can very easily do everything they suggest, and document with Rmd, and have more than one dataset open at a time `r emo::ji("fire")`
+    + automation: functions are very easy in R
+    + version control: git integrates well with R
+    + directories: R projects
+    + keys: not specific to software (keep data stored with identifiers)
+    + abstraction: functions round 2
+    + documentation: R markdown, easier options than local variables. 
     
     
 
