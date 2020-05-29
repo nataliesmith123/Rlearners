@@ -22,7 +22,7 @@ We will meet regularly on Mondays from 11am-1pm. I'll spend 1 hour (max) reviewi
 
 This will be very casual -- kids, pets, eating are all okay! Interupt me anytime via chat or audio to ask questions and *please* tell me to slow down if necessary. 
 
-First month of topics: 
+#### First month of topics: 
 
 + June 1: Workflows in R - projects, scripts, and markdown files. Integration with GitHub -- what is git & why you should use it, and using GitHub pages to make easy-to-access html webpages for your projects!
 + June 8: What are R objects, and why do I have to care? Types of variables in R - factors! Begin data management in R -- using the `tidyverse`
@@ -89,13 +89,16 @@ Two general options for how to access and use R
 ### June 8 - Workflows
 
 Specific things to cover:
+
 + R projects. Relative file paths, folder structure, etc. 
 + R scripts. Installing packages. Loading packages. File names, integrating with Markdown. 
 + R markdown. First steps. Knitting to pdf vs. html. Chunks. Pros and cons of code-in-scripts vs. code-in-markdown. 
 + GitHub integration. Integrating repositories with R projects, gitignore files, committing, pushing, pulling. 
 + Making project website with GitHub pages. 
 
+
 Exercises: 
+
 + Clone an example repository [add link here](github.com)
 + Pull 
 + Make a change to the markdown file with your name and email address.
@@ -124,6 +127,8 @@ This is my own compilation of useful R tidbits that don't have a good place to l
     + Intro to `naniar` package [here](https://allisonhorst.shinyapps.io/missingexplorer/#section-introduction)
     + *Very good* `ggplot` intro by [Andrew Heiss](https://twitter.com/andrewheiss) [here](https://datavizm20.classes.andrewheiss.com/). Also some `tidyverse` but not enough to fully understand it
     + R studio cheatsheets [here](https://rstudio.com/resources/cheatsheets/)
+    + `here` package [link](https://github.com/jennybc/here_here)
+    + `modelsummary` package for outputting regression models. thread on its use [here](https://twitter.com/VincentAB/status/1265794830682198016)
 + Guide for good coding in social sciences, from some economists [here](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf). R is great because you can very easily do everything they suggest, and document with Rmd, and have more than one dataset open at a time `r emo::ji("fire")`
     + automation: functions are very easy in R
     + version control: git integrates well with R
@@ -131,7 +136,17 @@ This is my own compilation of useful R tidbits that don't have a good place to l
     + keys: not specific to software (keep data stored with identifiers)
     + abstraction: functions round 2
     + documentation: R markdown, easier options than local variables. 
-    
++ `tidymodels` for machine learning - webiste [here](https://www.tidymodels.org/)
++ If you Twitter, here are some of my favorite people who regularly tweet extremely helpful R tips
+    + [Sharla Gelfland](https://twitter.com/sharlagelfand)
+    + [Allison Horst](https://twitter.com/allison_horst)
+    + [Alison Presmanes Hill](https://twitter.com/apreshill)
+    + [Hadley Wickham](https://twitter.com/hadleywickham)
+    + [Jenny Bryan](https://twitter.com/JennyBryan)
+    + [Julia Silge](https://twitter.com/juliasilge)
+    + will add more as I remember! 
++ [Netlify drop](https://app.netlify.com/drop) for quick pub of R markdown files
+
     
 
     
