@@ -73,7 +73,7 @@ This is my own compilation of useful R tidbits that don't have a good place to l
     + Intro to `naniar` package [here](https://allisonhorst.shinyapps.io/missingexplorer/#section-introduction)
     + *Amazing* `tidyverse` and `ggplot` intros by [Andrew Heiss](https://twitter.com/andrewheiss) [here](https://datavizm20.classes.andrewheiss.com/)
     + R studio cheatsheets [here](https://rstudio.com/resources/cheatsheets/)
-+ Writing functions that use `dplyr` verbs (party of the tidyverse) intro [here](https://dplyr.tidyverse.org/articles/programming.html)
+    
     
     
 
