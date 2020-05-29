@@ -14,16 +14,22 @@ Last Updated `r format(Sys.Date(), format="%m/%d/%Y")`
 
 This will be the R learners website for the summer! Most all of my resources will be posted here. 
 
-## First meeting
+Contact: Natalie Smith [natsmith@live.unc.edu](natsmith@live.unc.edu)
 
-#### To do
-1. Topics to cover - see below
-2. How these should work
-    + homework?
-    + lectures? 
-    + in-session activities with data provided?
-    + working with own data? 
-3. When & how often to meet
+## Intro
+
+We will meet regularly on Mondays from 11am-1pm. I'll spend 1 hour (max) reviewing the topic for that day and the different packages, etc. that are involved. The second hour will be working through examples independently (but still together) and is totally optional -- you can feel free to work through the examples on your own whenever works for you. 
+
+This will be very casual -- kids, pets, eating are all okay! Interupt me anytime via chat or audio to ask questions and *please* tell me to slow down if necessary. 
+
+First month of topics: 
+
++ June 1: Workflows in R - projects, scripts, and markdown files. Integration with GitHub -- what is git & why you should use it, and using GitHub pages to make easy-to-access html webpages for your projects!
++ June 8: Data management in R -- using the `tidyverse`
++ June 15: Natalie unavailable -- take week off, or someone else lead a session? Descriptive statistics in R? Can share my code for this and people work independently, or someone else moderate? 
++ June 22: Begin plotting!
++ June 29: Continue plotting! 
+
 
 
 
@@ -64,6 +70,9 @@ Two general options for how to access and use R
 2. Use [rstudio.cloud](rstudio.cloud) without the commitment of installing on your computer. *disclaimer: I don't know as much / anything about this*
     + Don't have to download R software and the R studio wrapper
     + Possibly less functional for all the bells and whistles -- not sure about GitHub integration, etc. But probably just fine for learning the basics, and much less potential annoyance with installations, etc. 
+
+3. *Optional* Make a [GitHub](https://github.com/) account
+    + Not necessary to use R. Is necessary to make a website (like this one) and use GitHub for collaborations, etc. 
 
 
 ## Resources
