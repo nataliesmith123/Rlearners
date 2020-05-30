@@ -3,7 +3,7 @@
 
 library(tidyverse)
 
-rusersOrig <- readxl::read_excel("../data/R users group list 0527_136PM.xlsx")
+rusersOrig <- readxl::read_excel("data/R users group list 0527_136PM.xlsx")
 
 # I had already taken a manual look at the data before doing this
 # also when I was building this code I was outputting new datasets in between steps
