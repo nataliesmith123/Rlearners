@@ -1,0 +1,230 @@
+---
+title: "HPM R learners - Summer 2020"
+output: 
+  html_document: 
+    theme: cerulean
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::read_chunk(here::here("code", "01_r-users-scheduling.r"))
+```
+
+
+# {.tabset}
+
+Last Updated `r format(Sys.Date(), format="%m/%d/%Y")`
+
+This will be the R learners website for the summer! Most all of my resources will be posted here. 
+
+Contact: Natalie Smith natsmith@live.unc.edu
+
+## Intro
+
+We will meet regularly on Mondays from 11am-1pm. I'll spend 1 hour (max) reviewing the topic for that day and the different packages, etc. that are involved. The second hour will be working through examples and is totally optional -- you can feel free to work through the examples on your own whenever works for you. 
+
+This will be very casual -- kids, pets, eating are all okay! Interrupt me anytime via chat or audio to ask questions and *please* tell me to slow down if necessary. 
+
+#### First month of topics: 
+
++ June 1: Workflows in R - projects, scripts, and markdown files. Integration with GitHub -- what is git & why you should use it, and using GitHub pages to make easy-to-access html webpages for your projects!
++ June 8: What are R objects, and why do I have to care? Types of variables in R - factors! Begin data management in R -- using the `tidyverse`
++ June 15: Natalie unavailable -- take week off, or someone else lead a session? Descriptive statistics in R? Can share my code for this and people work independently, or someone else moderate? 
++ June 22: Begin plotting!
++ June 29: Continue plotting! 
+
+
+
+
+#### Potential topics
+
++ Data management with the `tidyverse` package(s). Would probably suggest two weeks of this.
+    + Types of variables in R -- factors are the most unique to R specifically
+    + Merging, subsetting, and transposing data
+    + Creating new variables
++ Working with objects in R - what are they, how, and why??? `r emo::ji("angry")`
++ Descriptive statistics in R
+    + There are many, many packages - how to choose? 
+    + Overview with `skimr`
+    + Missing data with `naniar` package
+    + Full tables with `tableone`
+    + There's also `stargazer` and some others
++ Basic modeling - lm, logistic, others?
++ Other stat topics? 
++ Plotting with R - endless `ggplot2` options here! Can review all sorts of x-y plots, there are some new options for making maps. 
++ R projects, R markdown, GitHub, & GitHub pages (how I am making this website, very nice for collabs)
+
+
+#### Meeting times
+
+Some fun data management to wrangle our data into shape for graphing
+```{r dm, message=FALSE, warning=FALSE}
+```
+
+Now let's make a beautiful graph
+```{r graph}
+```
+
+
+
+
+
+## Getting started
+
+Two general options for how to access and use R
+
+1. Use R through R studio on your actual computer
+    + Download R v4.0.0 [here](http://archive.linux.duke.edu/cran/)
+    + Download R studio [here](https://rstudio.com/products/rstudio/download/#download)
+
+2. Use [rstudio.cloud](rstudio.cloud) without the commitment of installing on your computer. *disclaimer: I don't know as much / anything about this*
+    + Don't have to download R software and the R studio wrapper
+    + Possibly less functional for all the bells and whistles -- not sure about GitHub integration, etc. But probably just fine for learning the basics, and much less potential annoyance with installations, etc. 
+
+3. *Optional* Download [Git](https://git-scm.com/downloads) 
+    + Git is the open source program that allows committing etc. 
+
+4. *Optional* Make a [GitHub](https://github.com/) account
+    + GitHub is where you push your commits to
+    + Not necessary to use R. Is necessary to make a website (like this one) and use GitHub for collaborations, etc. 
+    
+5. *Optional* Download [GitHub Desktop](https://desktop.github.com/). 
+    + This is an interface that makes git not-scary and allows you to easily commit, push, and pull from your online GitHub account.
+    + R Studio also has an interface to do this directly. Either one works. There can be some annoyances with getting the Git tab in R Studio to work in my experience, and I like the interface of GitHub Desktop better. 
+
+
+## Sessions {.tabset}
+
+### June 8 - Workflows
+
+Quotes for the day from Jenny Bryan
+
+> Getting all the necessary software installed, configured, and playing nicely together is honestly half the battle when first adopting Git. 
+
+> If the first line of your R script is `setwd("C:\Users\jenny\path\that\only\I\have")` I will come into your office and SET YOUR COMPUTER ON FIRE `r emo::ji("fire")`.
+
+ 
+
+
+#### Items to cover 
+
++ R & R Studio basics
+    + Scripts
+    + Different session options
+    + Keyboard shortcuts
+    + Global and project options -- see Resources for .Rdata suggestions (requirements? `r emo::ji("smile")`)
+    + Two options for GitHub integration -- within R studio / with GitHub desktop. You might prefer one or the other. 
+    + gitignore - **ALWAYS** ignore data folder if there is sensitive data!!!!!!!!!!!!!!!!!!!!
+        + I often ignore whole folders, like data, resources, output, etc.
+        + GitHub desktop gives an easy interface to right-click and add things to the gitignore folder.
+    + Relative file paths using `here` package
+    + Markdown documents - the basics
+        + Markdown language
+        + `File` > `New file` > `R Markdown`
+        + I keep mine relatively plain for the easiest integration with GitHub pages
+
++ See what my general workflow looks like
+    + Show personal R project for Rlearners
+    + Folder structure -- see below
+    + File naming convention (when applicable - show Aim 2 scripts) Generally I do ##_informative-title.R
+    + Show Git/GitHub desktop interface (with R learners). The three things you will do all the time: 
+        + committing
+        + pushing
+        + pulling
+    
++ Watch it in action
+    1. Clone from repository
+        + Delete Rlearners from computer - oh no!
+        + Create a new project from version control repository
+        + Make an edit
+        + Commit changes
+        + Push to repo
+    2. Creating a repository online with .gitignore
+    3. Creating a repository in R Studio and publishing online
+    
+    
+#### Exercises
+
++ Exercise #1
+    + Create an R project for our example repository we made in step 3 above
+    + Create a script with a comment saying something
+    + Commit & push to repository
+  + Pull others' work
++ Exercise #2
+    + Same thing, but with our R learners repository!
+    + Check out the `index.Rmd` -- this is an R markdown document that we'll start talking about soon
+    + Add your name and email (if you want to) to the 'People' tab -- all the way at the bottom
+    + Good habit when collaborating: Pull before starting any of your own work
+        + Open project & pull anytime to get the latest and greatest things I've committed.
++ Exercise #3
+    + Make your own repository & R project for something
+
+
+
+
+
+#### Session Specific Resources
+
++ [Happy Git and GitHub for the useR](https://happygitwithr.com/)
++ [Workflows vs. Projects](https://www.tidyverse.org/blog/2017/12/workflow-vs-script/)
++ Markdown cheatsheet
+    + [one](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
+    + [two](https://holtzy.github.io/Pimp-my-rmd/)
+
+
+My personal folder structure *starting point* -- usually has some modifications based on project requirements 
+
+
+```{r}
+knitr::include_graphics(here("docs", "folder-tree.png"))
+```
+
+
+## Resources
+
+This is my own compilation of useful R tidbits that don't have a good place to live, and my go-to resources for various things in R. 
+
+
++ Tools > Global Options > General > Make sure the following things are done. Best practice for reproducible work!
+    + 'restore .Rdata' is unchecked
+    + saving .Rdata is set to 'Never'
+    + 'always save history' is unchecked. 
++ Emojis in R markdown
+    + Install by: `devtools::install_github("hadley/emo")` (need `devtools` package installed)
+    + [emoji package](https://github.com/hadley/emo)
+    + [Emoji search](https://emoji.muan.co/)
++ [Google it](https://twitter.com/andrewheiss/status/1263652454329208839)
++ Online resources
+    + Intro to `naniar` package [here](https://allisonhorst.shinyapps.io/missingexplorer/#section-introduction)
+    + *Very good* `ggplot` intro by [Andrew Heiss](https://twitter.com/andrewheiss) [here](https://datavizm20.classes.andrewheiss.com/). Also some `tidyverse` but not enough to fully understand it
+    + R studio cheatsheets [here](https://rstudio.com/resources/cheatsheets/)
+    + `here` package [link](https://github.com/jennybc/here_here)
+    + `modelsummary` package for outputting regression models. thread on its use [here](https://twitter.com/VincentAB/status/1265794830682198016)
++ Guide for good coding in social sciences, from some economists [here](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf). R is great because you can very easily do everything they suggest, and document with Rmd, and have more than one dataset open at a time `r emo::ji("fire")`
+    + automation: functions are very easy in R
+    + version control: git integrates well with R
+    + directories: R projects
+    + keys: not specific to software (keep data stored with identifiers)
+    + abstraction: functions round 2
+    + documentation: R markdown, easier options than local variables. 
++ `tidymodels` for machine learning - webiste [here](https://www.tidymodels.org/)
++ If you Twitter, here are some of my favorite people who regularly tweet extremely helpful R tips
+    + [Sharla Gelfland](https://twitter.com/sharlagelfand)
+    + [Allison Horst](https://twitter.com/allison_horst)
+    + [Alison Presmanes Hill](https://twitter.com/apreshill)
+    + [Hadley Wickham](https://twitter.com/hadleywickham)
+    + [Jenny Bryan](https://twitter.com/JennyBryan)
+    + [Julia Silge](https://twitter.com/juliasilge)
+    + will add more as I remember! 
++ [Netlify drop](https://app.netlify.com/drop) for quick pub of R markdown files
+
+
+## People
+
++ Natalie Smith - natsmith@live.unc.edu
+
+    
+
+    
+    
+    
