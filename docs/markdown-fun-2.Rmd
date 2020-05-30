@@ -1,0 +1,56 @@
+---
+title: "Fun Markdown 2"
+author: Natalie
+output: 
+  html_document: 
+    toc: true
+    toc_depth: 3
+    theme: simplex
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+summary(cars)
+```
+
+## Including Plots {.tabset}
+
+
+### This is a sub-section that's tabbed
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+### And here's another
+
+hi hello bonjour
+
+
+
+## Just going to write here
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis eros vitae arcu condimentum euismod. Vestibulum pharetra felis ipsum, in feugiat orci vulputate in. Nunc sed ligula eu leo malesuada ultrices a sed neque. Aliquam nibh sem, malesuada sit amet lobortis eget, interdum vel tellus. Proin non sem turpis. Aenean nec porta lectus. Etiam consequat ultrices fermentum. Nullam hendrerit neque non dolor varius vehicula. Aliquam euismod eros ante, a dignissim elit feugiat a. Mauris pharetra venenatis lectus. Nulla diam justo, imperdiet eu metus nec, cursus efficitur risus.
+
+Etiam lorem lorem, pellentesque ut dignissim ac, auctor a massa. Pellentesque vel sodales odio. Duis congue, nunc ac tincidunt suscipit, turpis velit pellentesque metus, et imperdiet quam est laoreet ligula. In suscipit pretium congue. Duis nec metus turpis. Praesent condimentum leo lacinia neque tincidunt efficitur. Quisque volutpat congue vestibulum.
+
+Etiam nunc enim, feugiat ac justo id, imperdiet malesuada leo. Etiam eu commodo justo. Vivamus eleifend sagittis mollis. Nam faucibus ante et libero lobortis egestas eu sed justo. Maecenas nisl nunc, cursus tristique arcu sit amet, porttitor fringilla nisi. Praesent pharetra, mauris at condimentum tempor, justo enim sagittis nisl, non lacinia eros felis pulvinar lacus. Aenean porta, tortor eget interdum tincidunt, lorem lectus luctus neque, in ornare leo dui vitae velit. Etiam ornare lorem enim, ut mollis dolor sagittis posuere. Cras viverra, nisl vel facilisis egestas, leo neque ornare ligula, id venenatis lacus ante eget lectus.
+
+Aliquam ut diam turpis. Cras eget pellentesque augue. Cras posuere est nibh, vehicula varius massa aliquam quis. Fusce blandit ultrices massa, aliquam sagittis erat lobortis ut. Ut pharetra nunc eu urna malesuada, egestas faucibus lacus auctor. Mauris luctus tortor eu nunc lacinia aliquet sed ut elit. Nam nec lorem lacus. Vestibulum laoreet tristique justo, ac consequat metus rhoncus non. Praesent ullamcorper congue mollis. Sed tincidunt, ipsum sit amet maximus tempus, erat ipsum interdum turpis, eget vulputate risus nisl eu dui.
+
+Quisque a gravida metus. Praesent rutrum risus eget dui interdum consequat. Integer ac elementum nisi. Donec eu risus dapibus, porta felis nec, feugiat odio. In nec sapien convallis, congue mi nec, rutrum nisl. In vitae pharetra eros. Aenean sodales tellus a sapien interdum, quis tempus velit accumsan. Morbi eu congue nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Vestibulum ut aliquet tellus, a ornare elit. Nam cursus ante vel eros dapibus, at tincidunt nibh accumsan.
+
+

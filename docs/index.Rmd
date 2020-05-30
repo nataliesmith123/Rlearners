@@ -2,9 +2,7 @@
 title: "HPM R learners - Summer 2020"
 output: 
   html_document: 
-    theme: cerulean
-    toc: true
-    toc_float: true
+    theme: readable
 ---
 
 ```{r setup, include=FALSE}
@@ -13,7 +11,7 @@ knitr::read_chunk(here::here("code", "01_r-users-scheduling.r"))
 ```
 
 
-
+# {.tabset}
 
 Last Updated `r format(Sys.Date(), format="%m/%d/%Y")`
 
