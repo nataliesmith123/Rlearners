@@ -366,14 +366,14 @@ summary {
 </div>
 
 
-<p>Last Updated 05/30/2020</p>
 <div id="section" class="section level1 tabset">
 <h1></h1>
+<p>Last Updated 05/30/2020</p>
 <p>This will be the R learners website for the summer! Most all of my resources will be posted here.</p>
-<p>Contact: Natalie Smith <a href="natsmith@live.unc.edu">natsmith@live.unc.edu</a></p>
+<p>Contact: Natalie Smith <a href="mailto:natsmith@live.unc.edu" class="email">natsmith@live.unc.edu</a></p>
 <div id="intro" class="section level2">
 <h2>Intro</h2>
-<p>We will meet regularly on Mondays from 11am-1pm. I’ll spend 1 hour (max) reviewing the topic for that day and the different packages, etc. that are involved. The second hour will be working through examples independently (but still together) and is totally optional – you can feel free to work through the examples on your own whenever works for you.</p>
+<p>We will meet regularly on Mondays from 11am-1pm. I’ll spend 1 hour (max) reviewing the topic for that day and the different packages, etc. that are involved. The second hour will be working through examples and is totally optional – you can feel free to work through the examples on your own whenever works for you.</p>
 <p>This will be very casual – kids, pets, eating are all okay! Interrupt me anytime via chat or audio to ask questions and <em>please</em> tell me to slow down if necessary.</p>
 <div id="first-month-of-topics" class="section level4">
 <h4>First month of topics:</h4>
@@ -413,8 +413,9 @@ summary {
 <h4>Meeting times</h4>
 <p>Some fun data management to wrangle our data into shape for graphing</p>
 <pre class="r"><code>library(tidyverse)
+library(here)
 
-rusersOrig &lt;- readxl::read_excel(&quot;data/R users group list 0527_136PM.xlsx&quot;)
+rusersOrig &lt;- readxl::read_excel(here(&quot;data&quot;, &quot;R users group list 0527_136PM.xlsx&quot;))
 
 # I had already taken a manual look at the data before doing this
 # also when I was building this code I was outputting new datasets in between steps
@@ -637,55 +638,94 @@ ggplot(data=rusers,
 <h2>Sessions</h2>
 <div id="june-8---workflows" class="section level3">
 <h3>June 8 - Workflows</h3>
-<p>Quote for the day:</p>
-<p>“Getting all the necessary software installed, configured, and playing nicely together is honestly half the battle when first adopting Git. Brace yourself for some pain. The upside is that you can give yourself a pat on the back once you get through this. And you WILL get through this.” ~ Jenny Bryan</p>
-<p>Items to cover:</p>
+<p>Quotes for the day from Jenny Bryan</p>
+<blockquote>
+<p>Getting all the necessary software installed, configured, and playing nicely together is honestly half the battle when first adopting Git.</p>
+</blockquote>
+<blockquote>
+<p>If the first line of your R script is <code>setwd(&quot;C:\Users\jenny\path\that\only\I\have&quot;)</code> I will come into your office and SET YOUR COMPUTER ON FIRE 🔥.</p>
+</blockquote>
+<div id="items-to-cover" class="section level4">
+<h4>Items to cover</h4>
 <ul>
 <li>R &amp; R Studio basics
 <ul>
 <li>Scripts</li>
 <li>Different session options</li>
-<li>Global and project options – see Resources for .Rdata suggestions</li>
+<li>Keyboard shortcuts</li>
+<li>Global and project options – see Resources for .Rdata suggestions (requirements? 😄)</li>
 <li>Two options for GitHub integration – within R studio / with GitHub desktop. You might prefer one or the other.</li>
+<li>gitignore - <strong>ALWAYS</strong> ignore data folder if there is sensitive data!!!!!!!!!!!!!!!!!!!!
+<ul>
+<li>I often ignore whole folders, like data, resources, output, etc.</li>
+<li>GitHub desktop gives an easy interface to right-click and add things to the gitignore folder.</li>
+</ul></li>
+<li>Relative file paths using <code>here</code> package</li>
 </ul></li>
 <li>See what my general workflow looks like
 <ul>
 <li>Show personal R project for Rlearners</li>
-<li>Show GitHub desktop interface for R learners</li>
-<li></li>
+<li>Folder structure</li>
+<li>File naming convention (when applicable - show Aim 2 scripts)</li>
+<li>Show Git/GitHub desktop interface (with R learners). The three things you will do all the time:
+<ul>
+<li>committing</li>
+<li>pushing</li>
+<li>pulling</li>
 </ul></li>
+</ul></li>
+<li>Watch it in action
+<ol style="list-style-type: decimal">
+<li>Clone from repository
+<ul>
+<li>Delete Rlearners from computer - oh no!</li>
+<li>Create a new project from version control repository</li>
+<li>Make an edit</li>
+<li>Commit changes</li>
+<li>Push to repo</li>
+</ul></li>
+<li>Creating a repository online with .gitignore</li>
+<li>Creating a repository in R Studio and publishing online</li>
+</ol></li>
+</ul>
+</div>
+<div id="exercises" class="section level4">
+<h4>Exercises</h4>
+<ul>
 <li>Exercise #1
 <ul>
-<li>Create an R project from the existing</li>
+<li>Create an R project for our example repository we made in step 3 above</li>
+<li>Create a script with a comment saying something</li>
+<li>Commit &amp; push to repository</li>
+<li>Pull others’ work</li>
 </ul></li>
 <li>Exercise #2
 <ul>
 <li>Same thing, but with our R learners repository!</li>
-<li></li>
+<li>Add your name and email (if you want to) to the ‘People’ tab – all the way at the bottom</li>
+<li>Good habit when collaborating: Pull before starting any of your own work</li>
+<li>Open project &amp; pull anytime to get the latest and greatest things I’ve committed.</li>
 </ul></li>
 <li>Exercise #3
 <ul>
 <li>Make your own repository &amp; R project for something</li>
 </ul></li>
-<li>R projects. Relative file paths, folder structure, etc.</li>
-<li>R scripts. Installing packages. Loading packages. File names, integrating with Markdown.</li>
-<li>R markdown. First steps. Knitting to pdf vs. html. Chunks. Pros and cons of code-in-scripts vs. code-in-markdown.</li>
-<li>GitHub integration. Integrating repositories with R projects, gitignore files, committing, pushing, pulling.</li>
-<li>Making project website with GitHub pages.</li>
 </ul>
-<p>Exercises:</p>
-<ul>
-<li>Clone an example repository <a href="github.com">add link here</a></li>
-<li>Pull</li>
-<li>Make a change to the markdown file with your name and email address.</li>
-<li>Push</li>
-<li>Did the website update?</li>
-</ul>
+</div>
 <div id="session-specific-resources" class="section level4">
 <h4>Session Specific Resources</h4>
 <ul>
 <li><a href="https://happygitwithr.com/">Happy Git and GitHub for the useR</a></li>
+<li><a href="https://www.tidyverse.org/blog/2017/12/workflow-vs-script/">Workflows vs. Projects</a></li>
+<li>Markdown cheatsheet
+<ul>
+<li><a href="https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet">one</a></li>
+<li><a href="https://holtzy.github.io/Pimp-my-rmd/">two</a></li>
+</ul></li>
 </ul>
+<p>My personal folder structure <em>starting point</em> – usually has some modifications based on project requirements</p>
+<pre class="r"><code>knitr::include_graphics(here(&quot;docs&quot;, &quot;folder-tree.png&quot;))</code></pre>
+<p><img src="data:image/png;base64,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" /><!-- --></p>
 </div>
 </div>
 </div>
@@ -735,6 +775,12 @@ ggplot(data=rusers,
 <li>will add more as I remember!</li>
 </ul></li>
 <li><a href="https://app.netlify.com/drop">Netlify drop</a> for quick pub of R markdown files</li>
+</ul>
+</div>
+<div id="people" class="section level2">
+<h2>People</h2>
+<ul>
+<li>Natalie Smith - <a href="mailto:natsmith@live.unc.edu" class="email">natsmith@live.unc.edu</a></li>
 </ul>
 </div>
 </div>
