@@ -20,7 +20,7 @@ Contact: Natalie Smith [natsmith@live.unc.edu](natsmith@live.unc.edu)
 
 We will meet regularly on Mondays from 11am-1pm. I'll spend 1 hour (max) reviewing the topic for that day and the different packages, etc. that are involved. The second hour will be working through examples independently (but still together) and is totally optional -- you can feel free to work through the examples on your own whenever works for you. 
 
-This will be very casual -- kids, pets, eating are all okay! Interupt me anytime via chat or audio to ask questions and *please* tell me to slow down if necessary. 
+This will be very casual -- kids, pets, eating are all okay! Interrupt me anytime via chat or audio to ask questions and *please* tell me to slow down if necessary. 
 
 #### First month of topics: 
 
@@ -88,7 +88,28 @@ Two general options for how to access and use R
 
 ### June 8 - Workflows
 
-Specific things to cover:
+Items to cover: 
+
++ R & R Studio basics
+    + Scripts
+    + Different session options
+    + Global and project options -- see Resources for .Rdata suggestions
+    + Two options for GitHub integration -- within R studio / with GitHub desktop. You might prefer one or the other. 
+    
+
++ See what my general workflow looks like
+    + Show personal R project for Rlearners
+    + Show GitHub desktop interface for R learners
+    + 
+    
++ Exercise #1
+    + Create an R project from the existing 
++ Exercise #2
+    + Same thing, but with our R learners repository!
+    + 
++ Exercise #3
+    + Make your own repository & R project for something
+
 
 + R projects. Relative file paths, folder structure, etc. 
 + R scripts. Installing packages. Loading packages. File names, integrating with Markdown. 
