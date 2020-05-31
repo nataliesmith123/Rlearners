@@ -103,26 +103,59 @@ Quotes for the day from Jenny Bryan
 
 > If the first line of your R script is `setwd("C:\Users\jenny\path\that\only\I\have")` I will come into your office and SET YOUR COMPUTER ON FIRE `r emo::ji("fire")`.
 
- 
+
+I'm going to walk through these items, and also show you examples of everything using the R learners folder/repository setup.  
 
 
 #### Items to cover 
 
 + R & R Studio basics
-    + Scripts
-    + Different session options
-    + Keyboard shortcuts
-    + Global and project options -- see Resources for .Rdata suggestions (requirements? `r emo::ji("smile")`)
-    + Two options for GitHub integration -- within R studio / with GitHub desktop. You might prefer one or the other. 
-    + gitignore - **ALWAYS** ignore data folder if there is sensitive data!!!!!!!!!!!!!!!!!!!!
-        + I often ignore whole folders, like data, resources, output, etc.
-        + GitHub desktop gives an easy interface to right-click and add things to the gitignore folder.
-    + Relative file paths using `here` package
-    + Markdown documents - the basics
-        + Markdown language
-        + `File` > `New file` > `R Markdown`
-        + I keep mine relatively plain for the easiest integration with GitHub pages
+    + R basics
+        + Scripts
+        + Different session options
+        + Keyboard shortcuts
+        + Install packages/libraries by `install.packages("LIBRARY_NAME")`
+        + Load whole libraries like `library(LIBRARY_NAME)`
+        + Use just one function from a library like `LIBRARY_NAME::FUNCTION` (helpful when you don't want the whole package, just one thing)
+    + R projects
+        + used to keep everything for one research project in order
+            + generally, everyone on the team will have their own R project
+            + add code from shared repository using Git/GitHub (more soon)
+        + Global and project options -- see Resources for .Rdata suggestions (requirements? `r emo::ji("smile")`)
+            + some options to help improve reproducibility and replicability within your and your team's workflows
+        + Projects make relative file paths very easy. This allows for easy of switching computers, or multiple users working with the same code
+            + Made even better with the `here` package! This function will look for an R project file, and then use that as the current directory and allows for easy manipulation of where to look for files. See `01_r-users-scheduling.R` for an example of its use, and there are some resources below.  
 
+    
++ R markdown
+    + Markdown language - simple to type, and then formats nicely
+    + `File` > `New file` > `R Markdown`
+    + I keep mine relatively plain for the easiest integration with GitHub pages
+    + Can 'knit' to html (nicest looking), pdf, and word
+    + Endless possibilities. I put some resources below -- I am constantly learning new things about markdown etc.!
+    + Can pull in 'code chunks' from R scripts easily -- see this file for an example. 
+        + make scripts. add `## @knitr CHUNK_NAME` before a code chunk
+        + read the script-chunks into the R markdown file by adding something like `knitr::read_chunk(here::here("code", "01_r-users-scheduling.r"))`
+        + then add a code chunk using the `Insert` button at the top right, and clicking `R`. 
+        + add the chunks by modifying the first line of the chunk in the Markdown file to read ` ```{r CODE_CHUNK}`
+        + I like to do this, but others also just write code directly in the Markdown file
+    + R markdown files will knit in a new workspace every time, so really helpful to make sure you have consistent code flow, etc. 
+
+    
++ Git and GitHub
+    + Sort of like track changes for code
+    + gitignore - **ALWAYS** ignore data folder if there is sensitive data!!!!!!!!!!!!!!!!!!!!
+    + I often ignore whole folders, like data, resources, output, etc.
+    + GitHub desktop gives an easy interface to right-click and add things to the gitignore folder.
+    + Watch it in action
+        1. Creating a repository online with .gitignore
+            + Create a new project from version control repository
+            + Make an edit
+            + Commit changes
+            + Push to repo
+        2. Creating a repository in R Studio and publishing online
+    
+    
 + See what my general workflow looks like
     + Show personal R project for Rlearners
     + Folder structure -- see below
@@ -132,32 +165,24 @@ Quotes for the day from Jenny Bryan
         + pushing
         + pulling
     
-+ Watch it in action
-    1. Clone from repository
-        + Delete Rlearners from computer - oh no!
-        + Create a new project from version control repository
-        + Make an edit
-        + Commit changes
-        + Push to repo
-    2. Creating a repository online with .gitignore
-    3. Creating a repository in R Studio and publishing online
-    
     
 #### Exercises
 
-+ Exercise #1
-    + Create an R project for our example repository we made in step 3 above
-    + Create a script with a comment saying something
-    + Commit & push to repository
-  + Pull others' work
-+ Exercise #2
++ Change your global and project options to not save Rdata
++ Packages
+    + Install the `tidyverse` and `here` packages
+    + Load those packages
++ Start your own project
+    + Make your R project for something (associate with repository if interested, either online or on your local file)
+    + Create a script doing something simple
+    + Create an R markdown document and link code (or just code in the markdown document)
+    + (if using Git) Commit & push to repository
+    + (if using Git) try adding me to the repository -- I can try to clone it and pull/push! My github username is `nataliesmith123`
++ Collaborating on the R learners repository
     + Same thing, but with our R learners repository!
     + Check out the `index.Rmd` -- this is an R markdown document that we'll start talking about soon
-    + Add your name and email (if you want to) to the 'People' tab -- all the way at the bottom
     + Good habit when collaborating: Pull before starting any of your own work
         + Open project & pull anytime to get the latest and greatest things I've committed.
-+ Exercise #3
-    + Make your own repository & R project for something
 
 
 
@@ -220,12 +245,3 @@ This is my own compilation of useful R tidbits that don't have a good place to l
 + [Netlify drop](https://app.netlify.com/drop) for quick pub of R markdown files
 
 
-## People
-
-+ Natalie Smith - natsmith@live.unc.edu
-
-    
-
-    
-    
-    

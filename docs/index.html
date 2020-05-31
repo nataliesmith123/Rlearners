@@ -380,7 +380,7 @@ summary {
 
 <div id="section" class="section level1 tabset">
 <h1></h1>
-<p>Last Updated 05/30/2020</p>
+<p>Last Updated 05/31/2020</p>
 <p>This will be the R learners website for the summer! Most all of my resources will be posted here.</p>
 <p>Contact: Natalie Smith <a href="mailto:natsmith@live.unc.edu" class="email">natsmith@live.unc.edu</a></p>
 <div id="intro" class="section level2">
@@ -657,28 +657,72 @@ ggplot(data=rusers,
 <blockquote>
 <p>If the first line of your R script is <code>setwd(&quot;C:\Users\jenny\path\that\only\I\have&quot;)</code> I will come into your office and SET YOUR COMPUTER ON FIRE 🔥.</p>
 </blockquote>
+<p>I’m going to walk through these items, and also show you examples of everything using the R learners folder/repository setup.</p>
 <div id="items-to-cover" class="section level4">
 <h4>Items to cover</h4>
 <ul>
 <li>R &amp; R Studio basics
 <ul>
+<li>R basics
+<ul>
 <li>Scripts</li>
 <li>Different session options</li>
 <li>Keyboard shortcuts</li>
-<li>Global and project options – see Resources for .Rdata suggestions (requirements? 😄)</li>
-<li>Two options for GitHub integration – within R studio / with GitHub desktop. You might prefer one or the other.</li>
-<li>gitignore - <strong>ALWAYS</strong> ignore data folder if there is sensitive data!!!!!!!!!!!!!!!!!!!!
-<ul>
-<li>I often ignore whole folders, like data, resources, output, etc.</li>
-<li>GitHub desktop gives an easy interface to right-click and add things to the gitignore folder.</li>
+<li>Install packages/libraries by <code>install.packages(&quot;LIBRARY_NAME&quot;)</code></li>
+<li>Load whole libraries like <code>library(LIBRARY_NAME)</code></li>
+<li>Use just one function from a library like <code>LIBRARY_NAME::FUNCTION</code> (helpful when you don’t want the whole package, just one thing)</li>
 </ul></li>
-<li>Relative file paths using <code>here</code> package</li>
-<li>Markdown documents - the basics
+<li>R projects
 <ul>
-<li>Markdown language</li>
+<li>used to keep everything for one research project in order
+<ul>
+<li>generally, everyone on the team will have their own R project</li>
+<li>add code from shared repository using Git/GitHub (more soon)</li>
+</ul></li>
+<li>Global and project options – see Resources for .Rdata suggestions (requirements? 😄)
+<ul>
+<li>some options to help improve reproducibility and replicability within your and your team’s workflows</li>
+</ul></li>
+<li>Projects make relative file paths very easy. This allows for easy of switching computers, or multiple users working with the same code
+<ul>
+<li>Made even better with the <code>here</code> package! This function will look for an R project file, and then use that as the current directory and allows for easy manipulation of where to look for files. See <code>01_r-users-scheduling.R</code> for an example of its use, and there are some resources below.</li>
+</ul></li>
+</ul></li>
+</ul></li>
+<li>R markdown
+<ul>
+<li>Markdown language - simple to type, and then formats nicely</li>
 <li><code>File</code> &gt; <code>New file</code> &gt; <code>R Markdown</code></li>
 <li>I keep mine relatively plain for the easiest integration with GitHub pages</li>
+<li>Can ‘knit’ to html (nicest looking), pdf, and word</li>
+<li>Endless possibilities. I put some resources below – I am constantly learning new things about markdown etc.!</li>
+<li>Can pull in ‘code chunks’ from R scripts easily – see this file for an example.
+<ul>
+<li>make scripts. add <code>## @knitr CHUNK_NAME</code> before a code chunk</li>
+<li>read the script-chunks into the R markdown file by adding something like <code>knitr::read_chunk(here::here(&quot;code&quot;, &quot;01_r-users-scheduling.r&quot;))</code></li>
+<li>then add a code chunk using the <code>Insert</code> button at the top right, and clicking <code>R</code>.</li>
+<li>add the chunks by modifying the first line of the chunk in the Markdown file to read <code>```{r CODE_CHUNK}</code></li>
+<li>I like to do this, but others also just write code directly in the Markdown file</li>
 </ul></li>
+<li>R markdown files will knit in a new workspace every time, so really helpful to make sure you have consistent code flow, etc.</li>
+</ul></li>
+<li>Git and GitHub
+<ul>
+<li>Sort of like track changes for code</li>
+<li>gitignore - <strong>ALWAYS</strong> ignore data folder if there is sensitive data!!!!!!!!!!!!!!!!!!!!</li>
+<li>I often ignore whole folders, like data, resources, output, etc.</li>
+<li>GitHub desktop gives an easy interface to right-click and add things to the gitignore folder.</li>
+<li>Watch it in action
+<ol style="list-style-type: decimal">
+<li>Creating a repository online with .gitignore
+<ul>
+<li>Create a new project from version control repository</li>
+<li>Make an edit</li>
+<li>Commit changes</li>
+<li>Push to repo</li>
+</ul></li>
+<li>Creating a repository in R Studio and publishing online</li>
+</ol></li>
 </ul></li>
 <li>See what my general workflow looks like
 <ul>
@@ -692,44 +736,33 @@ ggplot(data=rusers,
 <li>pulling</li>
 </ul></li>
 </ul></li>
-<li>Watch it in action
-<ol style="list-style-type: decimal">
-<li>Clone from repository
-<ul>
-<li>Delete Rlearners from computer - oh no!</li>
-<li>Create a new project from version control repository</li>
-<li>Make an edit</li>
-<li>Commit changes</li>
-<li>Push to repo</li>
-</ul></li>
-<li>Creating a repository online with .gitignore</li>
-<li>Creating a repository in R Studio and publishing online</li>
-</ol></li>
 </ul>
 </div>
 <div id="exercises" class="section level4">
 <h4>Exercises</h4>
 <ul>
-<li>Exercise #1
+<li>Change your global and project options to not save Rdata</li>
+<li>Packages
 <ul>
-<li>Create an R project for our example repository we made in step 3 above</li>
-<li>Create a script with a comment saying something</li>
-<li>Commit &amp; push to repository</li>
-<li>Pull others’ work</li>
+<li>Install the <code>tidyverse</code> and <code>here</code> packages</li>
+<li>Load those packages</li>
 </ul></li>
-<li>Exercise #2
+<li>Start your own project
+<ul>
+<li>Make your R project for something (associate with repository if interested, either online or on your local file)</li>
+<li>Create a script doing something simple</li>
+<li>Create an R markdown document and link code (or just code in the markdown document)</li>
+<li>(if using Git) Commit &amp; push to repository</li>
+<li>(if using Git) try adding me to the repository – I can try to clone it and pull/push! My github username is <code>nataliesmith123</code></li>
+</ul></li>
+<li>Collaborating on the R learners repository
 <ul>
 <li>Same thing, but with our R learners repository!</li>
 <li>Check out the <code>index.Rmd</code> – this is an R markdown document that we’ll start talking about soon</li>
-<li>Add your name and email (if you want to) to the ‘People’ tab – all the way at the bottom</li>
 <li>Good habit when collaborating: Pull before starting any of your own work
 <ul>
 <li>Open project &amp; pull anytime to get the latest and greatest things I’ve committed.</li>
 </ul></li>
-</ul></li>
-<li>Exercise #3
-<ul>
-<li>Make your own repository &amp; R project for something</li>
 </ul></li>
 </ul>
 </div>
@@ -797,12 +830,6 @@ ggplot(data=rusers,
 <li>will add more as I remember!</li>
 </ul></li>
 <li><a href="https://app.netlify.com/drop">Netlify drop</a> for quick pub of R markdown files</li>
-</ul>
-</div>
-<div id="people" class="section level2">
-<h2>People</h2>
-<ul>
-<li>Natalie Smith - <a href="mailto:natsmith@live.unc.edu" class="email">natsmith@live.unc.edu</a></li>
 </ul>
 </div>
 </div>
