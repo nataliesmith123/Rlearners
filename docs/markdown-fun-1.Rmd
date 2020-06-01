@@ -1,12 +1,18 @@
 ---
 title: "Fun Markdown 1"
-output: 
-  html_document: 
-    toc: true
-    toc_float: true
+output:
+  html_document:
+    toc: yes
+    toc_float: yes
     toc_depth: 2
     theme: cerulean
     highlight: tango
+  word_document:
+    toc: yes
+    toc_depth: '2'
+  pdf_document:
+    toc: yes
+    toc_depth: '2'
 ---
 
 ```{r setup, include=FALSE}
@@ -14,6 +20,21 @@ knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## R Markdown
+
+```{r, message=FALSE}
+library(tidyverse)
+
+
+tmp_dataset <- tibble::tribble(~var1, ~var2, 
+                               "hi", 1, 
+                               "hello", 2, 
+                               "bonjour", 3)
+
+
+mean(tmp_dataset$var2)
+
+```
+
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 

@@ -61,11 +61,11 @@ Some fun data management to wrangle our data into shape for graphing
 ```{r dm, message=FALSE, warning=FALSE}
 ```
 
-Now let's make a beautiful graph
+Now let's make a beautiful graph. 
 ```{r graph}
 ```
 
-
+We're going to go with Mondays from 11am-1pm -- this is what the most people wanted! 
 
 
 
