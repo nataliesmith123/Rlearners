@@ -8,6 +8,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 knitr::read_chunk(here::here("code", "01_r-users-scheduling.r"))
+knitr::read_chunk(here::here("code", "02_objects.r"))
 ```
 
 
@@ -97,16 +98,18 @@ Two general options for how to access and use R
 
 ### June 8 - a smorgasboard
 
-Now we'll dive into some of the nitty gritty of R! Goals for today are 1) understanding objects and types of 'things' in R, and 2) beginning data management. 
+Now we'll dive into some of the nitty gritty of R! Goals for today are 1) understanding 'objects' in R, and 2) beginning data management. 
 
 A variety of notes on objects
 
 + *My non-computer scientist opinion*: The term **object** is a catch-all for a 'thing' that is created. Objects are usually one kind of class and can include many different pieces ([Wikipedia](https://en.wikipedia.org/wiki/Object_(computer_science)) says "a combination of variables, functions, and data structures"). 
     + To me this means that datasets are objects -- their class is a dataset, and they contain variables. 
-    + R will add some other common objects / classes. Here are a few examples: 
+    + THere are the objects that I have come across the most in R:
+        + matrices
+        + vectors
         + dataframes/datasets and [tibbles](https://tibble.tidyverse.org/reference/tbl_df-class.html) - a sub-type of dataframe. "tibbles are lazy and surly: they do less and complain more than base data.frames. This forces problems to be tackled earlier and more explicitly, typically leading to code that is more expressive and robust"
             + within these objects, each variable will have its own class. these can be: 
-                + numeric (numbers with decimals)
+                + numeric (numbers with decimals, somtimes called a double, I think)
                 + integer (numbers without decimals)
                 + character (words)
                 + factor (numbers with assigned labels)
@@ -116,14 +119,43 @@ A variety of notes on objects
             + lists hold multiple things -- those things can be dataframes, vectors, etc.
             + understanding lists and how R works with them is a whole new world -- but is rapidly changing, so I'm hesitant to do too much with it now.
             + in my experience, iterating through a list is R's alternative to for loops (though you can still write for loops!). However, I've seen on twitter that new things are coming down the pipeline. 
+            + if you want to talk more about this, let me know. There is the whole `purrr` library, and a new rowwise operation within the tidyverse that is coming. 
         + ggplot objects (which are also kind of lists)
         + regression objects (which are also kind of lists)
-        + matrices
-        + vectors
+
     
-    
-```{r}
+#### Vectors
+```{r vectors}
 ```
+
+#### Matrices
+```{r matrix}
+```
+
+#### Dataframes / Tibbles
+```{r df}
+```
+
+#### Lists
+```{r list}
+```
+
+#### Modeling Objects
+```{r lm}
+```
+
+
+#### Visualization Objects
+```{r gg}
+```
+
+
+
+
+
+
+
+
 
 
 
