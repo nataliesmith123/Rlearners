@@ -2,7 +2,7 @@
 title: "HPM R learners - Summer 2020"
 output: 
   html_document: 
-    theme: readable
+    theme: lumen
 ---
 
 ```{r setup, include=FALSE}
