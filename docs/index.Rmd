@@ -6,9 +6,14 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
-knitr::read_chunk(here::here("code", "01_r-users-scheduling.r"))
-knitr::read_chunk(here::here("code", "02_objects.r"))
+library(knitr)
+library(here)
+library(tidyverse)
+
+opts_chunk$set(echo = TRUE)
+read_chunk(here("code", "01_r-users-scheduling.r"))
+read_chunk(here("code", "02_objects.r"))
+read_chunk(here("code", "03_data-management.R"))
 ```
 
 
@@ -96,6 +101,76 @@ Two general options for how to access and use R
 
 ## Sessions {.tabset}
 
+### June 15 - Data management
+
+The main data management things we will cover by working through some things together
+
+
++ getting a sense of your data using `skimr`
++ renaming variables: use `rename()` function in `tidyverse`
+    + `rename()` keeps all variables 
+    + `rename(newVarName = oldVarName)`
++ creating new variables: `mutate()`
+    + `mutate(newvar = someCommand)`
+    + use `if_else()` for if/else statements
+    + use `case_when()` as a substitute for nested if/else statements
++ subsetting data: `filter()`
+    + this defines what ROWS you want to keep
++ keeping and deleting variables/COLUMNS: `select()`
+    + to drop variables, add them to the select function like so: `select(-age)`
+    + to keep variables, do the same except take out the `-`
+    + can keep all variables within a range by using a colon `select(var1:var10)`
+    + can also use things like `starts_with()` and `ends_with()` which are very cool
+    + can also rename 'on-the-fly' within a select statement using the same syntax as `rename()` above
++ sorting data: `arrange()`
+    + this will RESET row names, so make sure you always have a unique ID variable and are not relying on implicit dataset ordering
++ options for transposing data: `pivot_longer()` and `pivot_wider()`
++ importing and exporting data to a variety of file types/softwares
+    + `readxl` and `foreign` libraries have support for this
+    + reading and writing csv files is done with `read_csv()` and `write_csv()` in base R
+    + `File` > `Import Dataset` is actually very helpful for this
+
+
+A few programming notes: 
+
++ R uses `&` (and); `|` (or)
++ `is.na()` checks if that variable is NA (missing)
++ can use `!` in front of `is.na()` to check if that variable is not missing
++ The usual <, <=, >, >=
++ use `%in%` function to avoid long strings of or statements
++ use [pipes](https://r4ds.had.co.nz/pipes.html) when reasonable
+
+
+#### Exercises / work though together
+
+Use the diamonds dataset (will be loaded after you load tidyverse package)
+
++ Skim the data
++ Create a variable called `diamondID` using the `rownames_to_column()` function
++ Sort data by `diamondID`
++ Subset data to just those diamonds that are less than or equal to one carat, and cost less than $1,000
++ Create two new variables that are **unordered** factor variables for diamond cut and color
+    + While yes, these are technially ordered variables, if you try to use an ordered variable in a regression it will treat it as continuous, rather than create multiple indicators. Treating as continuous may be what you want, may not be. Just something to be aware of. 
++ Create a dichotomous variable equal to 1 if the diamonds color was rated D, E, or F, 0 otherwise
++ Create a factor variable based on the previous dichotomous variable and give it nice value labels
++ Use `table()` or `xtabs()` to check your derived variables 
++ Recreate depth variable (see `?diamonds` for the formula)
+    + ah!! `mean()` doesn't work `r emo::ji("sad")`
+    + this is because it's not [vectorized](https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-rowwise/)
+    + try it two ways - manually creating mean, and using `rowwise()`
+
+#### Full code for exercises
+```{r dm_exercises, eval=FALSE, include=FALSE}
+```
+
+#### Import/Export
+```{r importExport}
+```
+
+
+
+
+
 ### June 8 - a smorgasboard
 
 Now we'll dive into some of the nitty gritty of R! Goals for today are 1) understanding 'objects' in R, and 2) beginning data management. 
@@ -104,7 +179,7 @@ A variety of notes on objects
 
 + *My non-computer scientist opinion*: The term **object** is a catch-all for a 'thing' that is created. Objects are usually one kind of class and can include many different pieces ([Wikipedia](https://en.wikipedia.org/wiki/Object_(computer_science)) says "a combination of variables, functions, and data structures"). 
     + To me this means that datasets are objects -- their class is a dataset, and they contain variables. 
-    + THere are the objects that I have come across the most in R:
+    + Here are the objects that I have come across the most in R:
         + matrices
         + vectors
         + dataframes/datasets and [tibbles](https://tibble.tidyverse.org/reference/tbl_df-class.html) - a sub-type of dataframe. "tibbles are lazy and surly: they do less and complain more than base data.frames. This forces problems to be tackled earlier and more explicitly, typically leading to code that is more expressive and robust"
@@ -119,9 +194,8 @@ A variety of notes on objects
             + lists hold multiple things -- those things can be dataframes, vectors, etc.
             + understanding lists and how R works with them is a whole new world -- but is rapidly changing, so I'm hesitant to do too much with it now.
             + in my experience, iterating through a list is R's alternative to for loops (though you can still write for loops!). However, I've seen on twitter that new things are coming down the pipeline. 
-            + if you want to talk more about this, let me know. There is the whole `purrr` library, and a new rowwise operation within the tidyverse that is coming. 
-        + ggplot objects (which are also kind of lists)
         + regression objects (which are also kind of lists)
+        + ggplot objects (which are also kind of lists; I've not used them much)
 
     
 #### Vectors
@@ -143,7 +217,6 @@ A variety of notes on objects
 #### Modeling Objects
 ```{r lm}
 ```
-
 
 #### Visualization Objects
 ```{r gg}

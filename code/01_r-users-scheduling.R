@@ -1,9 +1,6 @@
 
 ## @knitr dm
 
-library(tidyverse)
-library(here)
-
 rusersOrig <- readxl::read_excel(here("data", "R users group list 0527_136PM.xlsx"))
 
 # I had already taken a manual look at the data before doing this

@@ -69,6 +69,7 @@ aLittleDF <- tribble(~col1, ~col2, ~col3,
 
 # note that because there are characters in one of the columns, all of the columns are matrices
 DFtoMatrix <- as.matrix(aLittleDF)
+# can also make a matrix into a dataframe using as.data.frame()
 
 
 ## @knitr df
@@ -144,7 +145,9 @@ reg[["coefficients"]]
 plot(reg$fitted.values, reg$residuals)
 # oof, that cone shape, a bad regression!
 
-# can easily add to our diamonds data frame
+# can easily the fitted values and residuals to our diamonds data frame
+# disclaimer: this is, to my knowledge, based on the ORDERING of the dataframe and object
+# this has always seemed problematic to me, since the internal ordering could in theory change?
 diamondsPlus <- diamonds %>%
   mutate(predicted = reg$fitted.values, 
          residuals = reg$residuals)
@@ -171,6 +174,6 @@ base$labels
 # add points
 base + geom_point()
 
-# add points, and color by the carat
+# add points, and color by the carat (a little prelude to ggplot!)
 base + geom_point(aes(color=carat))
 
