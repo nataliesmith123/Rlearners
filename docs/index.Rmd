@@ -101,10 +101,9 @@ Two general options for how to access and use R
 
 ## Sessions {.tabset}
 
-### June 15 - Data management
+### #3 - Data management
 
-The main data management things we will cover by working through some things together
-
+The main data management things we will cover by working through a (contrived) exercise together
 
 + getting a sense of your data using `skimr`
 + renaming variables: use `rename()` function in `tidyverse`
@@ -114,6 +113,7 @@ The main data management things we will cover by working through some things tog
     + `mutate(newvar = someCommand)`
     + use `if_else()` for if/else statements
     + use `case_when()` as a substitute for nested if/else statements
+    + certain R functions that are not 'vectorized' cannot work over multiple columns (e.g., can't take mean of col1 and col2 directly in `tidyverse`). You either need to write out (col1+col2)/2 by hand, or call `rowwise()` to explicitly tell R to perform everything on a row-by-row basis.
 + subsetting data: `filter()`
     + this defines what ROWS you want to keep
 + keeping and deleting variables/COLUMNS: `select()`
@@ -124,11 +124,11 @@ The main data management things we will cover by working through some things tog
     + can also rename 'on-the-fly' within a select statement using the same syntax as `rename()` above
 + sorting data: `arrange()`
     + this will RESET row names, so make sure you always have a unique ID variable and are not relying on implicit dataset ordering
-+ options for transposing data: `pivot_longer()` and `pivot_wider()`
-+ importing and exporting data to a variety of file types/softwares
++ importing and exporting data to a variety of file types/softwares (see section below for some examples)
     + `readxl` and `foreign` libraries have support for this
     + reading and writing csv files is done with `read_csv()` and `write_csv()` in base R
     + `File` > `Import Dataset` is actually very helpful for this
++ options for transposing data: `pivot_longer()` and `pivot_wider()` (have not added examples of this, yet)
 
 
 A few programming notes: 
@@ -159,7 +159,11 @@ Use the diamonds dataset (will be loaded after you load tidyverse package)
     + this is because it's not [vectorized](https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-rowwise/)
     + try it two ways - manually creating mean, and using `rowwise()`
 
+
 #### Full code for exercises
+
+Will reveal at a later date `r emo::ji("nerd_face")`
+
 ```{r dm_exercises, eval=FALSE, include=FALSE}
 ```
 
@@ -171,9 +175,7 @@ Use the diamonds dataset (will be loaded after you load tidyverse package)
 
 
 
-### June 8 - a smorgasboard
-
-Now we'll dive into some of the nitty gritty of R! Goals for today are 1) understanding 'objects' in R, and 2) beginning data management. 
+### #2 - Objects
 
 A variety of notes on objects
 
@@ -233,7 +235,7 @@ A variety of notes on objects
 
 
 
-### June 1 - Workflows
+### #1 - Workflows
 
 Quotes for the day from Jenny Bryan
 
