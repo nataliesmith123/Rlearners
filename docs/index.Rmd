@@ -162,9 +162,7 @@ Use the diamonds dataset (will be loaded after you load tidyverse package)
 
 #### Full code for exercises
 
-Will reveal at a later date `r emo::ji("nerd_face")`
-
-```{r dm_exercises, eval=FALSE, include=FALSE}
+```{r dm_exercises}
 ```
 
 #### Import/Export
