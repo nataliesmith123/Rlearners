@@ -33,11 +33,15 @@ This will be very casual -- kids, pets, eating are all okay! Interrupt me anytim
 
 #### First month of topics: 
 
-+ June 1: Workflows in R - projects, scripts, and markdown files. Integration with GitHub -- what is git & why you should use it, and using GitHub pages to make easy-to-access html webpages for your projects!
-+ June 8: What are R objects, and why do I have to care? Types of variables in R - factors! Begin data management in R -- using the `tidyverse`
-+ June 15: Natalie unavailable -- take week off, or someone else lead a session? Descriptive statistics in R? Can share my code for this and people work independently, or someone else moderate? 
-+ June 22: Begin plotting!
++ ~~June 1: Workflows in R - projects, scripts, and markdown files. Integration with GitHub -- what is git & why you should use it, and using GitHub pages to make easy-to-access html webpages for your projects!~~
++ ~~June 8: What are R objects, and why do I have to care?~~ 
++ ~~June 15: Kathleen lead data management introduction~~
++ June 22: Review data management and begin plotting
 + June 29: Continue plotting! 
++ July 6: 
++ July 13: 
++ July 20: 
++ July 27: Final week!
 
 
 
@@ -100,6 +104,23 @@ Two general options for how to access and use R
 
 
 ## Sessions {.tabset}
+
+### #4 - Begin visualization
+
+Quick review of 1) any data management questions, and 2) import/export code from last session. 
+
+Plotting things to cover: 
+
++ Base vs. ggplot
++ Ggplot basics
+    + aesthetics
+    + geoms
+    + overlaid geoms
++ Specific geoms to cover
+    + points
+    + lines
+    + barplots
+    + others ? 
 
 ### #3 - Data management
 

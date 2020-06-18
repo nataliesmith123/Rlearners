@@ -392,7 +392,7 @@ summary {
 
 <div id="section" class="section level1 tabset">
 <h1></h1>
-<p>Last Updated 06/15/2020</p>
+<p>Last Updated 06/18/2020</p>
 <p>This will be the R learners website for the summer! Most all of my resources will be posted here.</p>
 <p>Contact: Natalie Smith <a href="mailto:natsmith@live.unc.edu" class="email">natsmith@live.unc.edu</a></p>
 <div id="intro" class="section level2">
@@ -402,11 +402,15 @@ summary {
 <div id="first-month-of-topics" class="section level4">
 <h4>First month of topics:</h4>
 <ul>
-<li>June 1: Workflows in R - projects, scripts, and markdown files. Integration with GitHub – what is git &amp; why you should use it, and using GitHub pages to make easy-to-access html webpages for your projects!</li>
-<li>June 8: What are R objects, and why do I have to care? Types of variables in R - factors! Begin data management in R – using the <code>tidyverse</code></li>
-<li>June 15: Natalie unavailable – take week off, or someone else lead a session? Descriptive statistics in R? Can share my code for this and people work independently, or someone else moderate?</li>
-<li>June 22: Begin plotting!</li>
+<li><del>June 1: Workflows in R - projects, scripts, and markdown files. Integration with GitHub – what is git &amp; why you should use it, and using GitHub pages to make easy-to-access html webpages for your projects!</del></li>
+<li><del>June 8: What are R objects, and why do I have to care?</del></li>
+<li><del>June 15: Kathleen lead data management introduction</del></li>
+<li>June 22: Review data management and begin plotting</li>
 <li>June 29: Continue plotting!</li>
+<li>July 6:</li>
+<li>July 13:</li>
+<li>July 20:</li>
+<li>July 27: Final week!</li>
 </ul>
 </div>
 <div id="potential-topics" class="section level4">
@@ -658,6 +662,27 @@ ggplot(data=rusers,
 </div>
 <div id="sessions" class="section level2 tabset">
 <h2>Sessions</h2>
+<div id="begin-visualization" class="section level3">
+<h3>#4 - Begin visualization</h3>
+<p>Quick review of 1) any data management questions, and 2) import/export code from last session.</p>
+<p>Plotting things to cover:</p>
+<ul>
+<li>Base vs. ggplot</li>
+<li>Ggplot basics
+<ul>
+<li>aesthetics</li>
+<li>geoms</li>
+<li>overlaid geoms</li>
+</ul></li>
+<li>Specific geoms to cover
+<ul>
+<li>points</li>
+<li>lines</li>
+<li>barplots</li>
+<li>others ?</li>
+</ul></li>
+</ul>
+</div>
 <div id="data-management" class="section level3">
 <h3>#3 - Data management</h3>
 <p>The main data management things we will cover by working through a (contrived) exercise together</p>
@@ -725,7 +750,7 @@ ggplot(data=rusers,
 <li>Use <code>table()</code> or <code>xtabs()</code> to check your derived variables</li>
 <li>Recreate depth variable (see <code>?diamonds</code> for the formula)
 <ul>
-<li>ah!! <code>mean()</code> doesn’t work 😭</li>
+<li>ah!! <code>mean()</code> doesn’t work 😢</li>
 <li>this is because it’s not <a href="https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-rowwise/">vectorized</a></li>
 <li>try it two ways - manually creating mean, and using <code>rowwise()</code></li>
 </ul></li>
@@ -44858,26 +44883,26 @@ aList[[&quot;poisson&quot;]] &lt;- rpois(n=sampleSize, lambda=2)
 # &#39;apply&#39; functions are a base R thing -- allow you you repeat a function over a list
 lapply(aList, mean)</code></pre>
 <pre><code>## $binomial
-## [1] 1.94
+## [1] 2.06
 ## 
 ## $normal
-## [1] 9.801693
+## [1] 9.691805
 ## 
 ## $gamma
-## [1] 1005.365
+## [1] 1013.717
 ## 
 ## $exponential
-## [1] 0.337763
+## [1] 0.3316517
 ## 
 ## $poisson
-## [1] 2.12</code></pre>
+## [1] 1.72</code></pre>
 <pre class="r"><code>meanList &lt;- lapply(aList, mean)
 
 # $ operator will help you autocomplete -- can be helpful when we get into reg objects, etc. 
 meanList$binomial</code></pre>
-<pre><code>## [1] 1.94</code></pre>
+<pre><code>## [1] 2.06</code></pre>
 <pre class="r"><code>meanList[[&quot;binomial&quot;]]</code></pre>
-<pre><code>## [1] 1.94</code></pre>
+<pre><code>## [1] 2.06</code></pre>
 <pre class="r"><code># there are so many possibilities with lists
 # they can hold different kinds of objects, etc. etc.
 # whole wide world out there once you get the basics down!
