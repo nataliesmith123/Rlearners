@@ -392,7 +392,7 @@ summary {
 
 <div id="section" class="section level1 tabset">
 <h1></h1>
-<p>Last Updated 06/18/2020</p>
+<p>Last Updated 06/21/2020</p>
 <p>This will be the R learners website for the summer! Most all of my resources will be posted here.</p>
 <p>Contact: Natalie Smith <a href="mailto:natsmith@live.unc.edu" class="email">natsmith@live.unc.edu</a></p>
 <div id="intro" class="section level2">
@@ -662,26 +662,68 @@ ggplot(data=rusers,
 </div>
 <div id="sessions" class="section level2 tabset">
 <h2>Sessions</h2>
-<div id="begin-visualization" class="section level3">
-<h3>#4 - Begin visualization</h3>
+<div id="visualization-2.0" class="section level3">
+<h3>#5 - Visualization 2.0</h3>
+<ul>
+<li>Review from last week</li>
+<li>Things we didn’t get to from last week</li>
+<li>Faceting</li>
+<li>Modifying components of a theme</li>
+</ul>
+</div>
+<div id="visualization-1.0" class="section level3">
+<h3>#4 - Visualization 1.0</h3>
 <p>Quick review of 1) any data management questions, and 2) import/export code from last session.</p>
 <p>Plotting things to cover:</p>
 <ul>
-<li>Base vs. ggplot</li>
-<li>Ggplot basics
+<li>Base vs. ggplot
 <ul>
-<li>aesthetics</li>
-<li>geoms</li>
-<li>overlaid geoms</li>
+<li>base does not require any additional packages to be used
+<ul>
+<li><code>plot()</code> is for scatterplot</li>
+<li><code>hist()</code> for histogram</li>
+<li>any conditional or group coloring, superimposing lines and dots, etc. gets very difficult within base (I think)</li>
 </ul></li>
-<li>Specific geoms to cover
+<li><a href="https://ggplot2.tidyverse.org/">ggplot</a> is the workhorse that most all of us will want to use
 <ul>
-<li>points</li>
-<li>lines</li>
-<li>barplots</li>
-<li>others ?</li>
+<li>graph multiple relationships on one plot</li>
+<li>almost endlessly customizable</li>
+<li>colors, etc.</li>
+</ul></li>
+</ul></li>
+<li>ggplot basics
+<ul>
+<li>“It’s hard to succinctly describe how ggplot2 works because it embodies a deep philosophy of visualisation. However, in most cases you start with ggplot(), supply a dataset and aesthetic mapping (with aes()). You then add on layers (like geom_point() or geom_histogram()), scales (like scale_colour_brewer()), faceting specifications (like facet_wrap()) and coordinate systems (like coord_flip()).” from <a href="https://ggplot2.tidyverse.org/">here</a></li>
+<li>format for data – grouping variable should be in columns</li>
+<li>aesthetics – what will be displayed
+<ul>
+<li>x and y (usually will always be used)</li>
+<li>fill = inside color, color = outside color</li>
+<li>alpha = transparency</li>
+<li>size = size of point, line thickness, etc.</li>
+<li>shape of points, stroke (outside line), and i’m sure many others</li>
+</ul></li>
+<li>geoms – how those aesthetics are displayed
+<ul>
+<li>geom_point() for scatterplot</li>
+<li>geom_line() for lines</li>
+<li>geom_density() for density plots</li>
+<li>geom_bar() for bar charts</li>
+<li>geom_histogram() for histograms</li>
+<li>many, many others</li>
+</ul></li>
 </ul></li>
 </ul>
+<p>Example plots to make:</p>
+<ol style="list-style-type: decimal">
+<li>Plot of carat by price, colored by cutIdeal</li>
+<li>Plot #1, but manually change the colors to be blue and red</li>
+<li>Distribution of diamond prices using geom_density, with a thick blue line of the density and the distribution filled underneath with light blue</li>
+<li>Distribution of carats using geom_histogram. outline the bins in black and the fill with light gray. use 50 bins.<br />
+</li>
+<li>Overlay a density plot on the histogram. what happens when you do the density geom FIRST, and then the histogram? the density should be dark blue and line size = 50</li>
+<li>Graph the mean of price by carats and color it by ideal cut. Split carats into 10 percentiles and use the ideal/not ideal variable. (this is hard!)</li>
+</ol>
 </div>
 <div id="data-management" class="section level3">
 <h3>#3 - Data management</h3>
@@ -750,7 +792,7 @@ ggplot(data=rusers,
 <li>Use <code>table()</code> or <code>xtabs()</code> to check your derived variables</li>
 <li>Recreate depth variable (see <code>?diamonds</code> for the formula)
 <ul>
-<li>ah!! <code>mean()</code> doesn’t work 😢</li>
+<li>ah!! <code>mean()</code> doesn’t work 😿</li>
 <li>this is because it’s not <a href="https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-rowwise/">vectorized</a></li>
 <li>try it two ways - manually creating mean, and using <code>rowwise()</code></li>
 </ul></li>
@@ -44883,26 +44925,26 @@ aList[[&quot;poisson&quot;]] &lt;- rpois(n=sampleSize, lambda=2)
 # &#39;apply&#39; functions are a base R thing -- allow you you repeat a function over a list
 lapply(aList, mean)</code></pre>
 <pre><code>## $binomial
-## [1] 2.06
+## [1] 2.1
 ## 
 ## $normal
-## [1] 9.691805
+## [1] 11.97494
 ## 
 ## $gamma
-## [1] 1013.717
+## [1] 1029.587
 ## 
 ## $exponential
-## [1] 0.3316517
+## [1] 0.257212
 ## 
 ## $poisson
-## [1] 1.72</code></pre>
+## [1] 2</code></pre>
 <pre class="r"><code>meanList &lt;- lapply(aList, mean)
 
 # $ operator will help you autocomplete -- can be helpful when we get into reg objects, etc. 
 meanList$binomial</code></pre>
-<pre><code>## [1] 2.06</code></pre>
+<pre><code>## [1] 2.1</code></pre>
 <pre class="r"><code>meanList[[&quot;binomial&quot;]]</code></pre>
-<pre><code>## [1] 2.06</code></pre>
+<pre><code>## [1] 2.1</code></pre>
 <pre class="r"><code># there are so many possibilities with lists
 # they can hold different kinds of objects, etc. etc.
 # whole wide world out there once you get the basics down!

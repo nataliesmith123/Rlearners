@@ -105,22 +105,54 @@ Two general options for how to access and use R
 
 ## Sessions {.tabset}
 
-### #4 - Begin visualization
+### #5 - Visualization 2.0
+
++ Review from last week
++ Things we didn't get to from last week 
++ Faceting
++ Modifying components of a theme
+
+### #4 - Visualization 1.0
 
 Quick review of 1) any data management questions, and 2) import/export code from last session. 
 
 Plotting things to cover: 
 
 + Base vs. ggplot
-+ Ggplot basics
-    + aesthetics
-    + geoms
-    + overlaid geoms
-+ Specific geoms to cover
-    + points
-    + lines
-    + barplots
-    + others ? 
+    + base does not require any additional packages to be used
+        + `plot()` is for scatterplot
+        + `hist()` for histogram
+        + any conditional or group coloring, superimposing lines and dots, etc. gets very difficult within base (I think)
+    + [ggplot](https://ggplot2.tidyverse.org/) is the workhorse that most all of us will want to use 
+        + graph multiple relationships on one plot
+        + almost endlessly customizable 
+        + colors, etc. 
++ ggplot basics
+    + "It’s hard to succinctly describe how ggplot2 works because it embodies a deep philosophy of visualisation. However, in most cases you start with ggplot(), supply a dataset and aesthetic mapping (with aes()). You then add on layers (like geom_point() or geom_histogram()), scales (like scale_colour_brewer()), faceting specifications (like facet_wrap()) and coordinate systems (like coord_flip())." from [here](https://ggplot2.tidyverse.org/)
+    + format for data -- grouping variable should be in columns
+    + aesthetics -- what will be displayed
+        + x and y (usually will always be used)
+        + fill = inside color, color = outside color
+        + alpha = transparency
+        + size = size of point, line thickness, etc.
+        + shape of points, stroke (outside line), and i'm sure many others
+    + geoms -- how those aesthetics are displayed
+        + geom_point() for scatterplot
+        + geom_line() for lines
+        + geom_density() for density plots
+        + geom_bar() for bar charts
+        + geom_histogram() for histograms
+        + many, many others
+        
+Example plots to make: 
+
+1. Plot of carat by price, colored by cutIdeal 
+2. Plot #1, but manually change the colors to be blue and red
+3. Distribution of diamond prices using geom_density, with a thick blue line of the density and the distribution filled underneath with light blue
+4. Distribution of carats using geom_histogram. outline the bins in black and the fill with light gray. use 50 bins.  
+5. Overlay a density plot on the histogram. what happens when you do the density geom FIRST, and then the histogram? the density should be dark blue and line size = 50
+6. Graph the mean of price by carats and color it by ideal cut. Split carats into 10 percentiles and use the ideal/not ideal variable. (this is hard!) 
+
 
 ### #3 - Data management
 
