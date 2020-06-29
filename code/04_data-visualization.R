@@ -35,10 +35,10 @@ ggplot(data=diamondsLess,
        aes(x=carat, 
            y=price)) + 
   geom_point(aes(color = cutIdeal)) + 
-  scale_color_nejm()
+  #scale_color_nejm()
   #scale_color_viridis_d()
-  #scale_color_manual(values = c("Ideal" = "#00FFFF", 
-  #                              "Not ideal" = "#FF5733"))
+  scale_color_manual(values = c("Ideal" = "#00FFFF", 
+                                "Not ideal" = "#FF5733"))
   
 
 # exercise 3
@@ -63,7 +63,6 @@ ggplot(data=diamondsLess) +
 
 
 # exercise 6
-str(diamondsLess)
 diamondsLess <- ungroup(diamondsLess)
 
 

@@ -38,9 +38,9 @@ This will be very casual -- kids, pets, eating are all okay! Interrupt me anytim
 + ~~June 8: What are R objects, and why do I have to care?~~ 
 + ~~June 15: Kathleen lead data management introduction~~
 + ~~June 22: Review data management and begin plotting~~
-+ June 29: Continue plotting! 
-+ July 6: 
-+ July 13: 
++ ~~June 29: Continue plotting!~~
++ July 6: Descriptive statistics & reproducible tables
++ July 13: Modeling - `lm()` and others
 + July 20: 
 + July 27: Final week!
 
@@ -393,6 +393,8 @@ Example plots to make:
 
 ### #5 - Visualization 2.0
 
+**our work from today is in the same codeblock as Visualization 1.0**
+
 + Review from last week
     + update on group_by !! 
 + [Faceting](https://ggplot2.tidyverse.org/reference/facet_grid.html) - repeating graph for level(s) of variable(s)
@@ -422,7 +424,21 @@ Additional plotting resources:
 + *Very good* `ggplot` intro by [Andrew Heiss](https://twitter.com/andrewheiss) [here](https://datavizm20.classes.andrewheiss.com/). Also some `tidyverse` but not enough to fully understand it
 
 
+### #6 - Descriptives & Table-making
 
++ note on relative sizes for ggplot & ggsave output
++ Descriptive statistics in R
+    + There are many, many packages - how to choose? 
+    + Overview with `skimr`
+    + Missing data with `naniar` package
+    + Full tables with `tableone`
+    + There's also `stargazer` and some others
+
+
+
+### #7 - Modeling
+
+to come!
 
 
 ## Resources
