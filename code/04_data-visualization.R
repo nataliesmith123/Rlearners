@@ -1,4 +1,7 @@
 
+## @knitr viz1
+
+
 # data(diamonds)
 
 # use the diamondsLess dataset from last week as review of commands, and cut down on number of points we have to plot 
@@ -18,55 +21,63 @@ ggplot(data=diamondsLess,
   geom_point()
 
 
+
+
 # exercise 1
 ggplot(data=diamondsLess, 
        aes(x=carat, 
            y=price)) + 
   geom_point(aes(color = cutIdeal))
 
+
 # exercise 2
 ggplot(data=diamondsLess, 
        aes(x=carat, 
            y=price)) + 
-  geom_point(aes(colour = cutIdeal)) + 
-  scale_colour_manual(values = c("Ideal" = "red", 
-                                 "Not ideal" = "blue"))
-
+  geom_point(aes(color = cutIdeal)) + 
+  #scale_color_viridis_d()
+  scale_color_manual(values = c("Ideal" = "red", 
+                                "Not ideal" = "blue"))
+  
 
 # exercise 3
-ggplot(data=diamondsLess) + 
-  geom_density(aes(x=price), fill="lightblue", color = "darkblue", size = 3)
+ggplot(data=diamondsLess, 
+       aes(x=price)) + 
+  geom_density(color = "darkblue", 
+               size=2, 
+               fill = "lightblue", 
+               alpha = 0.5)
 
 
-# exercise 4
+# exercise 4 & 5
 ggplot(data=diamondsLess) + 
   geom_histogram(aes(x=carat, 
-                     y = ..density..),
+                     y=..density..), 
+                 bins = 50, 
                  color = "black", 
-                 fill = "lightgray", 
-                 bins=50)
-  
-# exercise 5
-ggplot(data=diamondsLess) + 
-  geom_histogram(aes(x=carat, 
-                     y = ..density..),
-                 color = "black", 
-                 fill = "lightgray", 
-                 bins=50) + 
-geom_density(aes(x=carat), 
-             color = "darkblue", 
-             size = 1) 
+                 fill = "lightgray") + 
+  geom_density(aes(x=carat), color = "darkblue", size=2)
+
+
 
 
 # exercise 6
+str(diamondsLess)
+diamondsLess <- ungroup(diamondsLess)
+
+
 diamondsMean <- diamondsLess %>%
-  mutate(carat10pct = ntile(carat, 10)) %>%
+  arrange(carat) %>%
+  mutate(carat10pct = ntile(x = carat, n=10)) %>%
   group_by(carat10pct, cutIdeal) %>%
-  summarize(priceMean = mean(price), 
+  summarise(priceMean = mean(price), 
             priceSD = sd(price), 
             priceN = n(), 
-            priceSE = priceSD/priceN) %>%
+            priceSE = priceSD/priceN, 
+            
+            .groups = "keep") %>%
   ungroup()
+
 
 ggplot(data=diamondsMean, 
        aes(x=carat10pct, 
