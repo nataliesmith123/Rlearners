@@ -35,9 +35,10 @@ ggplot(data=diamondsLess,
        aes(x=carat, 
            y=price)) + 
   geom_point(aes(color = cutIdeal)) + 
+  scale_color_nejm()
   #scale_color_viridis_d()
-  scale_color_manual(values = c("Ideal" = "red", 
-                                "Not ideal" = "blue"))
+  #scale_color_manual(values = c("Ideal" = "#00FFFF", 
+  #                              "Not ideal" = "#FF5733"))
   
 
 # exercise 3
@@ -72,11 +73,15 @@ diamondsMean <- diamondsLess %>%
   group_by(carat10pct, cutIdeal) %>%
   summarise(priceMean = mean(price), 
             priceSD = sd(price), 
-            priceN = n(), 
-            priceSE = priceSD/priceN, 
+            priceN = n(),  
             
             .groups = "keep") %>%
-  ungroup()
+  ungroup() %>%
+  mutate(priceMean = round(priceMean, digits=0), 
+         priceSE = priceSD/priceN, 
+         priceLL = priceMean - (50*priceSE), 
+         priceUL = priceMean + (50*priceSE))
+  
 
 
 ggplot(data=diamondsMean, 
@@ -85,7 +90,28 @@ ggplot(data=diamondsMean,
            group=cutIdeal, 
            color=cutIdeal)) +
   geom_line(size=1) + 
-  geom_point(size=3)
+  geom_point(size=3) + 
+  geom_errorbar(aes(ymin = priceLL, 
+                    ymax = priceUL), 
+                color = "darkgray") + 
+  geom_label(aes(label = priceMean), show.legend = FALSE, position = position_dodge(width=1.5)) + 
+  scale_x_continuous(breaks = c(1,2,3,4,5,6,7,8,9,10)) + 
+  labs(title = "Plot of price by carats", 
+       subtitle = "Colored by ideal cut", 
+       caption = "using diamonds data from tidyverse") + 
+  xlab("Percentile of carat") + 
+  ylab("Average price") + 
+  theme_bw() + 
+  theme(legend.position = c(0.1,0.9),
+        legend.background = element_rect(linetype = "solid", colour = "black"),
+        legend.title = element_blank(), 
+        panel.grid = element_blank(), 
+        axis.text.x = element_text(size=16), 
+        axis.title.x = element_text(size=20), 
+        legend.text = element_text(size=12), 
+        plot.title = element_text(size=28, face="bold", hjust = 0.5), 
+        plot.subtitle = element_text(size=20, hjust=0.5), 
+        axis.text.y = element_text(angle=45))
 
 
 
