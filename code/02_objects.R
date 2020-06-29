@@ -11,6 +11,8 @@ numerator <- 124
 denominator <- 45
 
 (ratio <- numerator/denominator) # enclosing in () just makes it print automatically
+numerator/denominator
+
 
 # I tend to do things like number of iterations, simulation size, etc. as scalars
 
@@ -49,7 +51,7 @@ aMatrix <- matrix(c(1,2,3,4,
 
 # access things within a matrix using the indices
 # first element is the rows, second is the columns
-aMatrix[1,1] # first row, first column
+tmp <- aMatrix[1,1] # first row, first column
 aMatrix[,2] # whole second column
 aMatrix[c(1,3),] # first and third rows, all columns
 # you can also assign these to new objects to use them again
@@ -94,6 +96,7 @@ str(diamonds$cut)
 xtabs(~cut, data=diamonds)
 
 
+
 ## @knitr list
 
 # Lists -------------------------------------------------------------------
@@ -118,6 +121,7 @@ meanList <- lapply(aList, mean)
 # $ operator will help you autocomplete -- can be helpful when we get into reg objects, etc. 
 meanList$binomial
 meanList[["binomial"]]
+
 
 
 # there are so many possibilities with lists
