@@ -138,7 +138,11 @@ meanList[["binomial"]]
 
 # in R modeling, the general formula is y ~ x vars
 # tidymodels! 
-reg <- lm(price ~ carat + x + y + z, data=diamonds)
+
+diamondsExample <- slice_sample(diamonds, n=500)
+
+
+reg <- lm(price ~ carat + x + y + z, data=diamondsExample)
 
 summary(reg)
 
@@ -152,7 +156,7 @@ plot(reg$fitted.values, reg$residuals)
 # can easily the fitted values and residuals to our diamonds data frame
 # disclaimer: this is, to my knowledge, based on the ORDERING of the dataframe and object
 # this has always seemed problematic to me, since the internal ordering could in theory change?
-diamondsPlus <- diamonds %>%
+diamondsPlus <- diamondsExample %>%
   mutate(predicted = reg$fitted.values, 
          residuals = reg$residuals)
 

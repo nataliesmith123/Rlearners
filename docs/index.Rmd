@@ -14,6 +14,7 @@ opts_chunk$set(echo = TRUE)
 read_chunk(here("code", "01_r-users-scheduling.r"))
 read_chunk(here("code", "02_objects.r"))
 read_chunk(here("code", "03_data-management.R"))
+read_chunk(here("code", "04_data-visualization.R"))
 ```
 
 
@@ -36,7 +37,7 @@ This will be very casual -- kids, pets, eating are all okay! Interrupt me anytim
 + ~~June 1: Workflows in R - projects, scripts, and markdown files. Integration with GitHub -- what is git & why you should use it, and using GitHub pages to make easy-to-access html webpages for your projects!~~
 + ~~June 8: What are R objects, and why do I have to care?~~ 
 + ~~June 15: Kathleen lead data management introduction~~
-+ June 22: Review data management and begin plotting
++ ~~June 22: Review data management and begin plotting~~
 + June 29: Continue plotting! 
 + July 6: 
 + July 13: 
@@ -48,7 +49,7 @@ This will be very casual -- kids, pets, eating are all okay! Interrupt me anytim
 
 #### Potential topics
 
-+ Data management with the `tidyverse` package(s). Would probably suggest two weeks of this.
++ Data management with the `tidyverse` package(s)
     + Types of variables in R -- factors are the most unique to R specifically
     + Merging, subsetting, and transposing data
     + Creating new variables
@@ -104,187 +105,6 @@ Two general options for how to access and use R
 
 
 ## Sessions {.tabset}
-
-### #5 - Visualization 2.0
-
-+ Review from last week
-+ Things we didn't get to from last week 
-+ Faceting
-+ Modifying components of a theme
-
-### #4 - Visualization 1.0
-
-Quick review of 1) any data management questions, and 2) import/export code from last session. 
-
-Plotting things to cover: 
-
-+ Base vs. ggplot
-    + base does not require any additional packages to be used
-        + `plot()` is for scatterplot
-        + `hist()` for histogram
-        + any conditional or group coloring, superimposing lines and dots, etc. gets very difficult within base (I think)
-    + [ggplot](https://ggplot2.tidyverse.org/) is the workhorse that most all of us will want to use 
-        + graph multiple relationships on one plot
-        + almost endlessly customizable 
-        + colors, etc. 
-+ ggplot basics
-    + "It’s hard to succinctly describe how ggplot2 works because it embodies a deep philosophy of visualisation. However, in most cases you start with ggplot(), supply a dataset and aesthetic mapping (with aes()). You then add on layers (like geom_point() or geom_histogram()), scales (like scale_colour_brewer()), faceting specifications (like facet_wrap()) and coordinate systems (like coord_flip())." from [here](https://ggplot2.tidyverse.org/)
-    + format for data -- grouping variable should be in columns
-    + aesthetics -- what will be displayed
-        + x and y (usually will always be used)
-        + fill = inside color, color = outside color
-        + alpha = transparency
-        + size = size of point, line thickness, etc.
-        + shape of points, stroke (outside line), and i'm sure many others
-    + geoms -- how those aesthetics are displayed
-        + geom_point() for scatterplot
-        + geom_line() for lines
-        + geom_density() for density plots
-        + geom_bar() for bar charts
-        + geom_histogram() for histograms
-        + many, many others
-        
-Example plots to make: 
-
-1. Plot of carat by price, colored by cutIdeal 
-2. Plot #1, but manually change the colors to be blue and red
-3. Distribution of diamond prices using geom_density, with a thick blue line of the density and the distribution filled underneath with light blue
-4. Distribution of carats using geom_histogram. outline the bins in black and the fill with light gray. use 50 bins.  
-5. Overlay a density plot on the histogram. what happens when you do the density geom FIRST, and then the histogram? the density should be dark blue and line size = 50
-6. Graph the mean of price by carats and color it by ideal cut. Split carats into 10 percentiles and use the ideal/not ideal variable. (this is hard!) 
-
-
-### #3 - Data management
-
-The main data management things we will cover by working through a (contrived) exercise together
-
-+ getting a sense of your data using `skimr`
-+ renaming variables: use `rename()` function in `tidyverse`
-    + `rename()` keeps all variables 
-    + `rename(newVarName = oldVarName)`
-+ creating new variables: `mutate()`
-    + `mutate(newvar = someCommand)`
-    + use `if_else()` for if/else statements
-    + use `case_when()` as a substitute for nested if/else statements
-    + certain R functions that are not 'vectorized' cannot work over multiple columns (e.g., can't take mean of col1 and col2 directly in `tidyverse`). You either need to write out (col1+col2)/2 by hand, or call `rowwise()` to explicitly tell R to perform everything on a row-by-row basis.
-+ subsetting data: `filter()`
-    + this defines what ROWS you want to keep
-+ keeping and deleting variables/COLUMNS: `select()`
-    + to drop variables, add them to the select function like so: `select(-age)`
-    + to keep variables, do the same except take out the `-`
-    + can keep all variables within a range by using a colon `select(var1:var10)`
-    + can also use things like `starts_with()` and `ends_with()` which are very cool
-    + can also rename 'on-the-fly' within a select statement using the same syntax as `rename()` above
-+ sorting data: `arrange()`
-    + this will RESET row names, so make sure you always have a unique ID variable and are not relying on implicit dataset ordering
-+ importing and exporting data to a variety of file types/softwares (see section below for some examples)
-    + `readxl` and `foreign` libraries have support for this
-    + reading and writing csv files is done with `read_csv()` and `write_csv()` in base R
-    + `File` > `Import Dataset` is actually very helpful for this
-+ options for transposing data: `pivot_longer()` and `pivot_wider()` (have not added examples of this, yet)
-
-
-A few programming notes: 
-
-+ R uses `&` (and); `|` (or)
-+ `is.na()` checks if that variable is NA (missing)
-+ can use `!` in front of `is.na()` to check if that variable is not missing
-+ The usual <, <=, >, >=
-+ use `%in%` function to avoid long strings of or statements
-+ use [pipes](https://r4ds.had.co.nz/pipes.html) when reasonable
-
-
-#### Exercises / work though together
-
-Use the diamonds dataset (will be loaded after you load tidyverse package)
-
-+ Skim the data
-+ Create a variable called `diamondID` using the `rownames_to_column()` function
-+ Sort data by `diamondID`
-+ Subset data to just those diamonds that are less than or equal to one carat, and cost less than $1,000
-+ Create two new variables that are **unordered** factor variables for diamond cut and color
-    + While yes, these are technially ordered variables, if you try to use an ordered variable in a regression it will treat it as continuous, rather than create multiple indicators. Treating as continuous may be what you want, may not be. Just something to be aware of. 
-+ Create a dichotomous variable equal to 1 if the diamonds color was rated D, E, or F, 0 otherwise
-+ Create a factor variable based on the previous dichotomous variable and give it nice value labels
-+ Use `table()` or `xtabs()` to check your derived variables 
-+ Recreate depth variable (see `?diamonds` for the formula)
-    + ah!! `mean()` doesn't work `r emo::ji("sad")`
-    + this is because it's not [vectorized](https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-rowwise/)
-    + try it two ways - manually creating mean, and using `rowwise()`
-
-
-#### Full code for exercises
-
-```{r dm_exercises}
-```
-
-#### Import/Export
-```{r importExport}
-```
-
-
-
-
-
-### #2 - Objects
-
-A variety of notes on objects
-
-+ *My non-computer scientist opinion*: The term **object** is a catch-all for a 'thing' that is created. Objects are usually one kind of class and can include many different pieces ([Wikipedia](https://en.wikipedia.org/wiki/Object_(computer_science)) says "a combination of variables, functions, and data structures"). 
-    + To me this means that datasets are objects -- their class is a dataset, and they contain variables. 
-    + Here are the objects that I have come across the most in R:
-        + matrices
-        + vectors
-        + dataframes/datasets and [tibbles](https://tibble.tidyverse.org/reference/tbl_df-class.html) - a sub-type of dataframe. "tibbles are lazy and surly: they do less and complain more than base data.frames. This forces problems to be tackled earlier and more explicitly, typically leading to code that is more expressive and robust"
-            + within these objects, each variable will have its own class. these can be: 
-                + numeric (numbers with decimals, somtimes called a double, I think)
-                + integer (numbers without decimals)
-                + character (words)
-                + factor (numbers with assigned labels)
-                + lists (yes, you can have a list-column -- very meta. also very useful sometimes!)
-        + lists
-            + one of the objects with the biggest learning curve (I think)
-            + lists hold multiple things -- those things can be dataframes, vectors, etc.
-            + understanding lists and how R works with them is a whole new world -- but is rapidly changing, so I'm hesitant to do too much with it now.
-            + in my experience, iterating through a list is R's alternative to for loops (though you can still write for loops!). However, I've seen on twitter that new things are coming down the pipeline. 
-        + regression objects (which are also kind of lists)
-        + ggplot objects (which are also kind of lists; I've not used them much)
-
-    
-#### Vectors
-```{r vectors}
-```
-
-#### Matrices
-```{r matrix}
-```
-
-#### Dataframes / Tibbles
-```{r df}
-```
-
-#### Lists
-```{r list}
-```
-
-#### Modeling Objects
-```{r lm}
-```
-
-#### Visualization Objects
-```{r gg}
-```
-
-
-
-
-
-
-
-
-
-
-
 
 ### #1 - Workflows
 
@@ -395,6 +215,214 @@ My personal folder structure *starting point* -- usually has some modifications 
 ```{r}
 knitr::include_graphics(here("docs", "folder-tree.png"))
 ```
+
+### #2 - Objects
+
+A variety of notes on objects
+
++ *My non-computer scientist opinion*: The term **object** is a catch-all for a 'thing' that is created. Objects are usually one kind of class and can include many different pieces ([Wikipedia](https://en.wikipedia.org/wiki/Object_(computer_science)) says "a combination of variables, functions, and data structures"). 
+    + To me this means that datasets are objects -- their class is a dataset, and they contain variables. 
+    + Here are the objects that I have come across the most in R:
+        + matrices
+        + vectors
+        + dataframes/datasets and [tibbles](https://tibble.tidyverse.org/reference/tbl_df-class.html) - a sub-type of dataframe. "tibbles are lazy and surly: they do less and complain more than base data.frames. This forces problems to be tackled earlier and more explicitly, typically leading to code that is more expressive and robust"
+            + within these objects, each variable will have its own class. these can be: 
+                + numeric (numbers with decimals, somtimes called a double, I think)
+                + integer (numbers without decimals)
+                + character (words)
+                + factor (numbers with assigned labels)
+                + lists (yes, you can have a list-column -- very meta. also very useful sometimes!)
+        + lists
+            + one of the objects with the biggest learning curve (I think)
+            + lists hold multiple things -- those things can be dataframes, vectors, etc.
+            + understanding lists and how R works with them is a whole new world -- but is rapidly changing, so I'm hesitant to do too much with it now.
+            + in my experience, iterating through a list is R's alternative to for loops (though you can still write for loops!). However, I've seen on twitter that new things are coming down the pipeline. 
+        + regression objects (which are also kind of lists)
+        + ggplot objects (which are also kind of lists; I've not used them much)
+
+    
+#### Vectors
+```{r vectors}
+```
+
+#### Matrices
+```{r matrix}
+```
+
+#### Dataframes / Tibbles
+```{r df}
+```
+
+#### Lists
+```{r list}
+```
+
+#### Modeling Objects
+```{r lm}
+```
+
+#### Visualization Objects
+```{r gg}
+```
+
+
+
+
+
+
+
+
+
+### #3 - Data management
+
+The main data management things we will cover by working through a (contrived) exercise together
+
++ getting a sense of your data using `skimr`
++ renaming variables: use `rename()` function in `tidyverse`
+    + `rename()` keeps all variables 
+    + `rename(newVarName = oldVarName)`
++ creating new variables: `mutate()`
+    + `mutate(newvar = someCommand)`
+    + use `if_else()` for if/else statements
+    + use `case_when()` as a substitute for nested if/else statements
+    + certain R functions that are not 'vectorized' cannot work over multiple columns (e.g., can't take mean of col1 and col2 directly in `tidyverse`). You either need to write out (col1+col2)/2 by hand, or call `rowwise()` to explicitly tell R to perform everything on a row-by-row basis.
++ subsetting data: `filter()`
+    + this defines what ROWS you want to keep
++ keeping and deleting variables/COLUMNS: `select()`
+    + to drop variables, add them to the select function like so: `select(-age)`
+    + to keep variables, do the same except take out the `-`
+    + can keep all variables within a range by using a colon `select(var1:var10)`
+    + can also use things like `starts_with()` and `ends_with()` which are very cool
+    + can also rename 'on-the-fly' within a select statement using the same syntax as `rename()` above
++ sorting data: `arrange()`
+    + this will RESET row names, so make sure you always have a unique ID variable and are not relying on implicit dataset ordering
++ importing and exporting data to a variety of file types/softwares (see section below for some examples)
+    + `readxl` and `foreign` libraries have support for this
+    + reading and writing csv files is done with `read_csv()` and `write_csv()` in base R
+    + `File` > `Import Dataset` is actually very helpful for this
++ options for transposing data: `pivot_longer()` and `pivot_wider()` (have not added examples of this, yet)
+
+
+A few programming notes: 
+
++ R uses `&` (and); `|` (or)
++ `is.na()` checks if that variable is NA (missing)
++ can use `!` in front of `is.na()` to check if that variable is not missing
++ The usual <, <=, >, >=
++ use `%in%` function to avoid long strings of or statements
++ use [pipes](https://r4ds.had.co.nz/pipes.html) when reasonable
+
+
+#### Exercises / work though together
+
+Use the diamonds dataset (will be loaded after you load tidyverse package)
+
++ Skim the data
++ Create a variable called `diamondID` using the `rownames_to_column()` function
++ Sort data by `diamondID`
++ Subset data to just those diamonds that are less than or equal to one carat, and cost less than $1,000
++ Create two new variables that are **unordered** factor variables for diamond cut and color
+    + While yes, these are technially ordered variables, if you try to use an ordered variable in a regression it will treat it as continuous, rather than create multiple indicators. Treating as continuous may be what you want, may not be. Just something to be aware of. 
++ Create a dichotomous variable equal to 1 if the diamonds color was rated D, E, or F, 0 otherwise
++ Create a factor variable based on the previous dichotomous variable and give it nice value labels
++ Use `table()` or `xtabs()` to check your derived variables 
++ Recreate depth variable (see `?diamonds` for the formula)
+    + ah!! `mean()` doesn't work `r emo::ji("sad")`
+    + this is because it's not [vectorized](https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-rowwise/)
+    + try it two ways - manually creating mean, and using `rowwise()`
+
+
+#### Full code for exercises
+
+```{r dm_exercises}
+```
+
+#### Import/Export
+```{r importExport}
+```
+
+
+
+
+
+
+### #4 - Visualization 1.0
+
+Quick review of 1) any data management questions, and 2) import/export code from last session. 
+
+Plotting things to cover: 
+
++ Base vs. ggplot
+    + base does not require any additional packages to be used
+        + `plot()` is for scatterplot
+        + `hist()` for histogram
+        + any conditional or group coloring, superimposing lines and dots, etc. gets very difficult within base (I think)
+    + [ggplot](https://ggplot2.tidyverse.org/) is the workhorse that most all of us will want to use 
+        + graph multiple relationships on one plot
+        + almost endlessly customizable 
+        + colors, etc. 
++ ggplot basics
+    + "It’s hard to succinctly describe how ggplot2 works because it embodies a deep philosophy of visualisation. However, in most cases you start with ggplot(), supply a dataset and aesthetic mapping (with aes()). You then add on layers (like geom_point() or geom_histogram()), scales (like scale_colour_brewer()), faceting specifications (like facet_wrap()) and coordinate systems (like coord_flip())." from [here](https://ggplot2.tidyverse.org/)
+    + format for data -- grouping variable should be in columns
+    + aesthetics -- what will be displayed
+        + x and y (usually will always be used)
+        + fill = inside color, color = outside color
+        + alpha = transparency
+        + size = size of point, line thickness, etc.
+        + shape of points, stroke (outside line), and i'm sure many others
+    + geoms -- how those aesthetics are displayed
+        + geom_point() for scatterplot
+        + geom_line() for lines
+        + geom_density() for density plots
+        + geom_bar() for bar charts
+        + geom_histogram() for histograms
+        + many, many others
+        
+Example plots to make: 
+
+1. Plot of carat by price, colored by cutIdeal 
+2. Plot #1, but manually change the colors to be blue and red
+3. Distribution of diamond prices using geom_density, with a thick blue line of the density and the distribution filled underneath with light blue
+4. Distribution of carats using geom_histogram. outline the bins in black and the fill with light gray. use 50 bins.  
+5. Overlay a density plot on the histogram. what happens when you do the density geom FIRST, and then the histogram? the density should be dark blue and line size = 50
+6. Graph the mean of price by carats and color it by ideal cut. Split carats into 10 percentiles and use the ideal/not ideal variable. (this is hard!) 
+
+```{r viz1}
+```
+
+
+### #5 - Visualization 2.0
+
++ Review from last week
+    + update on group_by !! 
++ [Faceting](https://ggplot2.tidyverse.org/reference/facet_grid.html) - repeating graph for level(s) of variable(s)
++ Modifying components of a theme
+    + title, subtitle, caption, axis labels
+    + overall ggplot [themes](https://ggplot2.tidyverse.org/reference/ggtheme.html)
+    + see Andrew Heiss tutorial below for help with themes too
+    + Use exercise #6 from last week to practice modifying components of a theme
+        + where legend is (and removing legend)
+        + remove legend title
+        + axis ticks
+        + axis lengths
++ Save ggplots using `ggsave()` function
++ Fun geoms
+    + violin plots
+    + dotplots (underutilized, I think!)
+    
+    
+
+Additional plotting resources: 
+
++ Colors: 
+    + `ggsci`: color palettes matching major journals [here](https://nanx.me/ggsci/articles/ggsci.html)
+    + `Rcolorbrewer`: major package with many palettes [here](https://www.r-graph-gallery.com/38-rcolorbrewers-palettes.html). Note sequential, diverging, and qualitative palette types!
+    + R color names [here](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf). Can also type `colors()` to see all names. 
+    + Can also use hexadecimal color codes in R - make sure to put in quotes
++ *Very good* `ggplot` intro by [Andrew Heiss](https://twitter.com/andrewheiss) [here](https://datavizm20.classes.andrewheiss.com/). Also some `tidyverse` but not enough to fully understand it
+
+
+
 
 
 ## Resources

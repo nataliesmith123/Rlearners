@@ -85,7 +85,7 @@ rusers <- rusersOrig %>%
   
   # group_by() gets your data ready to calculate numbers by a given grouping
   # for every combination of time and day
-  group_by(time, day) %>%
+  group_by(time, day, .groups="keep") %>%
   
   # summarise() is used after group by to create summary stats
   # you can also use things like mean(), sum(), etc. 
