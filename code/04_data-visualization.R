@@ -20,7 +20,13 @@ ggplot(data=diamondsLess,
            y=price)) + 
   geom_point()
 
-
+ggsave(filename = here("output", "testSave.png"), 
+       plot = last_plot(), 
+       device = "png", 
+       dpi = 500, 
+       width = 8, 
+       height = 7, 
+       units = "in")
 
 
 # exercise 1
