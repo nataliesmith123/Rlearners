@@ -39,9 +39,9 @@ This will be very casual -- kids, pets, eating are all okay! Interrupt me anytim
 + ~~June 15: Kathleen lead data management introduction~~
 + ~~June 22: Review data management and begin plotting~~
 + ~~June 29: Continue plotting!~~
-+ July 6: Descriptive statistics & reproducible tables
-+ July 13: Modeling - `lm()` and others
-+ July 20: 
++ July 6: More data management - joining/merging, transposing. Begin descriptive statistics & reproducible tables
++ July 13: 
++ July 20: Modeling - `lm()` and others
 + July 27: Final week!
 
 
