@@ -139,7 +139,7 @@ meanList[["binomial"]]
 # in R modeling, the general formula is y ~ x vars
 # tidymodels! 
 
-diamondsExample <- slice_sample(diamonds, n=500)
+diamondsExample <- slice(diamonds, n=500)
 
 
 reg <- lm(price ~ carat + x + y + z, data=diamondsExample)

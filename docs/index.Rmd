@@ -411,7 +411,7 @@ Example plots to make:
 + Fun geoms
     + violin plots
     + dotplots (underutilized, I think!)
-    
++ can use `ggsave()` to save png, pdf, etc.     
     
 
 Additional plotting resources: 
@@ -424,9 +424,43 @@ Additional plotting resources:
 + *Very good* `ggplot` intro by [Andrew Heiss](https://twitter.com/andrewheiss) [here](https://datavizm20.classes.andrewheiss.com/). Also some `tidyverse` but not enough to fully understand it
 
 
-### #6 - Descriptives & Table-making
+### #6 - More data management
 
-+ note on relative sizes for ggplot & ggsave output
++ joining
+    + documentation classifies joins in three ways - mutating, filtering, and nesting. mutating is the most common, especially for our type of work (generally)
+    + mutating
+        + `left_join()`: prioritizes the *left hand side* data frame ('prioritizes' means it returns those rows)
+        + `full_join()`: keeps all rows from both data frames 
+        + there's also `right_join()` and `inner_join()` that have similar behavior
+    + filtering
+        + used to keep cases from the 'left hand' dataframe. `semi_join()` and `anti_join()`
+    + nesting
+        + 'creates a list column of data.frames()'. i've never used this!
++ transposing - `pivot_wider()` and `pivot_longer()`
++ begin descriptives if time -- `tableone()` package
+
+
+Exercises: 
+
++ import excel data (use here function)
++ join patronus data to characters data
+    1. first join the id data to characters, by Name (join variable called Name in both datasets)
+    2. use abbrev variable to add patronus data (join variable named differently in each dataset)
++ keep only those characters who are in one of the four Hogwarts houses
++ create a new variable that =1 if a character is female, =0 if male
++ group by hogwarts house
+    + count the number of people in each Hogwarts house
+    + calculate the proportion of women in each hogwarts house
++ tranposing - take character data and make it 'longer', then go back 'wider'
++ package mentions - tidylog and tidyselect
++ make a descriptive table using tableone package
+
+    
+
+
+
+### #7 Descriptives & Table-making
+
 + Descriptive statistics in R
     + There are many, many packages - how to choose? 
     + Overview with `skimr`
@@ -436,7 +470,7 @@ Additional plotting resources:
 
 
 
-### #7 - Modeling
+### #8 - Modeling
 
 to come!
 
