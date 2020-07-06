@@ -15,6 +15,7 @@ read_chunk(here("code", "01_r-users-scheduling.r"))
 read_chunk(here("code", "02_objects.r"))
 read_chunk(here("code", "03_data-management.R"))
 read_chunk(here("code", "04_data-visualization.R"))
+read_chunk(here("code", "05_hp-dmv2.R"))
 ```
 
 
@@ -453,7 +454,10 @@ Exercises:
     + calculate the proportion of women in each hogwarts house
 + tranposing - take character data and make it 'longer', then go back 'wider'
 + package mentions - tidylog and tidyselect
-+ make a descriptive table using tableone package
+
+
+```{r hpdm}
+```
 
     
 
