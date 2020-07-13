@@ -16,6 +16,7 @@ read_chunk(here("code", "02_objects.r"))
 read_chunk(here("code", "03_data-management.R"))
 read_chunk(here("code", "04_data-visualization.R"))
 read_chunk(here("code", "05_hp-dmv2.R"))
+read_chunk(here("code", "06_descriptives.R"))
 ```
 
 
@@ -40,10 +41,10 @@ This will be very casual -- kids, pets, eating are all okay! Interrupt me anytim
 + ~~June 15: Kathleen lead data management introduction~~
 + ~~June 22: Review data management and begin plotting~~
 + ~~June 29: Continue plotting!~~
-+ July 6: More data management - joining/merging, transposing. Begin descriptive statistics & reproducible tables
-+ July 13: 
-+ July 20: Modeling - `lm()` and others
-+ July 27: Final week!
++ ~~July 6: More data management - joining/merging, transposing.~~
++ July 13: Descriptive statistics
++ July 20: Modeling - using outside resources
++ July 27: Final week! I'll be online for the usual 11-12ish hour and can review anything, help out with issues, etc. 
 
 
 
@@ -467,16 +468,23 @@ Exercises:
 
 + Descriptive statistics in R
     + There are many, many packages - how to choose? 
-    + Overview with `skimr`
+    + Getting basic descriptive statistics
+        + `skimr` - I think this is the most basic of descriptive packages, and I like how I can get an overview of both missing data and summary stats. Not sure about its use for stratified descriptives and/or exporting to other software. 
+        + `desctable` - this is a newer package. I am still figuring it all out, but it seems like it can finally do everything I want in a descriptive stats package. Vignette about its use [here](https://cran.r-project.org/web/packages/desctable/vignettes/desctable.html)
+        + `tableone` - I find this a very annoying package but it usually gets the job done
     + Missing data with `naniar` package
-    + Full tables with `tableone`
-    + There's also `stargazer` and some others
++ Exporting to excel and linking spreadsheets - export raw descriptives from R, link to a formatted excel sheet, update as needed. 
+
+```{r descriptives}
+```
 
 
 
 ### #8 - Modeling
 
-to come!
++ [Fantastic resource](https://uvastatlab.github.io/phdplus/index.html) from UVa -- I am going to use this to talk about modeling. I don't feel like I could do it justice on my own (I haven't done much with modeling in R) and so will err on the side of finding good resources.
++ [Econometrics with R](https://www.econometrics-with-r.org/index.html) textbook. Amazing!
+
 
 
 ## Resources
@@ -499,6 +507,7 @@ This is my own compilation of useful R tidbits that don't have a good place to l
     + R studio cheatsheets [here](https://rstudio.com/resources/cheatsheets/)
     + `here` package [link](https://github.com/jennybc/here_here)
     + `modelsummary` package for outputting regression models. thread on its use [here](https://twitter.com/VincentAB/status/1265794830682198016)
+    + 6 session R intro from UVa [here](https://uvastatlab.github.io/phdplus/index.html)
 + Guide for good coding in social sciences, from some economists [here](https://web.stanford.edu/~gentzkow/research/CodeAndData.pdf). R is great because you can very easily do everything they suggest, and document with Rmd, and have more than one dataset open at a time `r emo::ji("fire")`
     + automation: functions are very easy in R
     + version control: git integrates well with R
