@@ -2,7 +2,7 @@
 *  foreign::write.foreign(df = teaTime, datafile = here("data",  ;
 
 DATA  rlearners ;
-INFILE  "C:/Users/natsmith/Desktop/Rlearners/data/sas-data.txt" 
+INFILE  "C:/Users/Natalie/Documents/Rlearners/data/sas-data.txt" 
      DSD 
      LRECL= 17 ;
 INPUT
