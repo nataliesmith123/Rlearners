@@ -34,7 +34,7 @@ We will meet regularly on Mondays from 11am-1pm. I'll spend 1 hour (max) reviewi
 
 This will be very casual -- kids, pets, eating are all okay! Interrupt me anytime via chat or audio to ask questions and *please* tell me to slow down if necessary. 
 
-#### First month of topics: 
+#### General topics covered 
 
 + ~~June 1: Workflows in R - projects, scripts, and markdown files. Integration with GitHub -- what is git & why you should use it, and using GitHub pages to make easy-to-access html webpages for your projects!~~
 + ~~June 8: What are R objects, and why do I have to care?~~ 
@@ -42,30 +42,17 @@ This will be very casual -- kids, pets, eating are all okay! Interrupt me anytim
 + ~~June 22: Review data management and begin plotting~~
 + ~~June 29: Continue plotting!~~
 + ~~July 6: More data management - joining/merging, transposing.~~
-+ July 13: Descriptive statistics
++ ~~July 13: Descriptive statistics~~
 + July 20: Modeling - using outside resources
 + July 27: Final week! I'll be online for the usual 11-12ish hour and can review anything, help out with issues, etc. 
 
 
+Some other things that we could have done but did not: 
 
++ more advanced R markdown - producing word documents and writing whole papers in R (with numbers in-text, tables, and figures linked to data, etc.)
++ writing functions, and applying them efficiently
++ personal websites in R using blogdown
 
-#### Potential topics
-
-+ Data management with the `tidyverse` package(s)
-    + Types of variables in R -- factors are the most unique to R specifically
-    + Merging, subsetting, and transposing data
-    + Creating new variables
-+ Working with objects in R - what are they, how, and why??? `r emo::ji("angry")`
-+ Descriptive statistics in R
-    + There are many, many packages - how to choose? 
-    + Overview with `skimr`
-    + Missing data with `naniar` package
-    + Full tables with `tableone`
-    + There's also `stargazer` and some others
-+ Basic modeling - lm, logistic, others?
-+ Other stat topics? 
-+ Plotting with R - endless `ggplot2` options here! Can review all sorts of x-y plots, there are some new options for making maps. 
-+ R projects, R markdown, GitHub, & GitHub pages (how I am making this website, very nice for collabs)
 
 
 #### Meeting times
@@ -482,7 +469,12 @@ Exercises:
 
 ### #8 - Modeling
 
-+ [Fantastic resource](https://uvastatlab.github.io/phdplus/index.html) from UVa -- I am going to use this to talk about modeling. I don't feel like I could do it justice on my own (I haven't done much with modeling in R) and so will err on the side of finding good resources.
++ [Fantastic starting resource](https://uvastatlab.github.io/phdplus/index.html) from UVa -- I am going to use this to talk about modeling. I don't feel like I could do it justice on my own (I haven't done much with modeling in R) and so will err on the side of finding good resources.
+    + note that the `lm()` function call is somewhat outdated now -- see below resources on tidymodels, parsnip, and broom
++ More advanced modeling resources
+    + [tidymodels](https://www.tidymodels.org/) is at the forefront of standardizing how modeling and machine learning works in R. Like tidyverse, tidymodels is made up of many [packages](https://www.tidymodels.org/packages/)
+    + Intro to [parsnip](https://www.tidyverse.org/blog/2018/11/parsnip-0-0-1/) package (one of the tidymodels suite)
+    + Intro post on linear reg using tidymodels [here](https://parsnip.tidymodels.org/reference/linear_reg.html)
 + [Econometrics with R](https://www.econometrics-with-r.org/index.html) textbook. Amazing!
 
 
@@ -505,6 +497,7 @@ This is my own compilation of useful R tidbits that don't have a good place to l
     + Intro to `naniar` package [here](https://allisonhorst.shinyapps.io/missingexplorer/#section-introduction)
     + *Very good* `ggplot` intro by [Andrew Heiss](https://twitter.com/andrewheiss) [here](https://datavizm20.classes.andrewheiss.com/). Also some `tidyverse` but not enough to fully understand it
     + R studio cheatsheets [here](https://rstudio.com/resources/cheatsheets/)
+    + [Resources](https://www.tidyverse.org/learn/) for learning the tidyverse
     + `here` package [link](https://github.com/jennybc/here_here)
     + `modelsummary` package for outputting regression models. thread on its use [here](https://twitter.com/VincentAB/status/1265794830682198016)
     + 6 session R intro from UVa [here](https://uvastatlab.github.io/phdplus/index.html)

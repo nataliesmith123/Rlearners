@@ -392,15 +392,15 @@ summary {
 
 <div id="section" class="section level1 tabset">
 <h1></h1>
-<p>Last Updated 07/13/2020</p>
+<p>Last Updated 07/20/2020</p>
 <p>This will be the R learners website for the summer! Most all of my resources will be posted here.</p>
 <p>Contact: Natalie Smith <a href="mailto:natsmith@live.unc.edu" class="email">natsmith@live.unc.edu</a></p>
 <div id="intro" class="section level2">
 <h2>Intro</h2>
 <p>We will meet regularly on Mondays from 11am-1pm. I’ll spend 1 hour (max) reviewing the topic for that day and the different packages, etc. that are involved. The second hour will be working through examples and is totally optional – you can feel free to work through the examples on your own whenever works for you.</p>
 <p>This will be very casual – kids, pets, eating are all okay! Interrupt me anytime via chat or audio to ask questions and <em>please</em> tell me to slow down if necessary.</p>
-<div id="first-month-of-topics" class="section level4">
-<h4>First month of topics:</h4>
+<div id="general-topics-covered" class="section level4">
+<h4>General topics covered</h4>
 <ul>
 <li><del>June 1: Workflows in R - projects, scripts, and markdown files. Integration with GitHub – what is git &amp; why you should use it, and using GitHub pages to make easy-to-access html webpages for your projects!</del></li>
 <li><del>June 8: What are R objects, and why do I have to care?</del></li>
@@ -408,33 +408,15 @@ summary {
 <li><del>June 22: Review data management and begin plotting</del></li>
 <li><del>June 29: Continue plotting!</del></li>
 <li><del>July 6: More data management - joining/merging, transposing.</del></li>
-<li>July 13: Descriptive statistics</li>
+<li><del>July 13: Descriptive statistics</del></li>
 <li>July 20: Modeling - using outside resources</li>
 <li>July 27: Final week! I’ll be online for the usual 11-12ish hour and can review anything, help out with issues, etc.</li>
 </ul>
-</div>
-<div id="potential-topics" class="section level4">
-<h4>Potential topics</h4>
+<p>Some other things that we could have done but did not:</p>
 <ul>
-<li>Data management with the <code>tidyverse</code> package(s)
-<ul>
-<li>Types of variables in R – factors are the most unique to R specifically</li>
-<li>Merging, subsetting, and transposing data</li>
-<li>Creating new variables</li>
-</ul></li>
-<li>Working with objects in R - what are they, how, and why??? 😠</li>
-<li>Descriptive statistics in R
-<ul>
-<li>There are many, many packages - how to choose?</li>
-<li>Overview with <code>skimr</code></li>
-<li>Missing data with <code>naniar</code> package</li>
-<li>Full tables with <code>tableone</code></li>
-<li>There’s also <code>stargazer</code> and some others</li>
-</ul></li>
-<li>Basic modeling - lm, logistic, others?</li>
-<li>Other stat topics?</li>
-<li>Plotting with R - endless <code>ggplot2</code> options here! Can review all sorts of x-y plots, there are some new options for making maps.</li>
-<li>R projects, R markdown, GitHub, &amp; GitHub pages (how I am making this website, very nice for collabs)</li>
+<li>more advanced R markdown - producing word documents and writing whole papers in R (with numbers in-text, tables, and figures linked to data, etc.)</li>
+<li>writing functions, and applying them efficiently</li>
+<li>personal websites in R using blogdown</li>
 </ul>
 </div>
 <div id="meeting-times" class="section level4">
@@ -981,26 +963,26 @@ aList[[&quot;poisson&quot;]] &lt;- rpois(n=sampleSize, lambda=2)
 # &#39;apply&#39; functions are a base R thing -- allow you you repeat a function over a list
 lapply(aList, mean)</code></pre>
 <pre><code>## $binomial
-## [1] 1.92
+## [1] 2.08
 ## 
 ## $normal
-## [1] 11.45866
+## [1] 10.48337
 ## 
 ## $gamma
-## [1] 1038.413
+## [1] 1007.333
 ## 
 ## $exponential
-## [1] 0.3240261
+## [1] 0.3139017
 ## 
 ## $poisson
-## [1] 2.1</code></pre>
+## [1] 2</code></pre>
 <pre class="r"><code>meanList &lt;- lapply(aList, mean)
 
 # $ operator will help you autocomplete -- can be helpful when we get into reg objects, etc. 
 meanList$binomial</code></pre>
-<pre><code>## [1] 1.92</code></pre>
+<pre><code>## [1] 2.08</code></pre>
 <pre class="r"><code>meanList[[&quot;binomial&quot;]]</code></pre>
-<pre><code>## [1] 1.92</code></pre>
+<pre><code>## [1] 2.08</code></pre>
 <pre class="r"><code># there are so many possibilities with lists
 # they can hold different kinds of objects, etc. etc.
 # whole wide world out there once you get the basics down!
@@ -1156,7 +1138,7 @@ base + geom_point(aes(color=carat))</code></pre>
 <li>Use <code>table()</code> or <code>xtabs()</code> to check your derived variables</li>
 <li>Recreate depth variable (see <code>?diamonds</code> for the formula)
 <ul>
-<li>ah!! <code>mean()</code> doesn’t work 😭</li>
+<li>ah!! <code>mean()</code> doesn’t work 😿</li>
 <li>this is because it’s not <a href="https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-rowwise/">vectorized</a></li>
 <li>try it two ways - manually creating mean, and using <code>rowwise()</code></li>
 </ul></li>
@@ -2295,7 +2277,7 @@ skim(descriptiveDiamonds)</code></pre>
 <td align="right">1</td>
 <td align="left">TRUE</td>
 <td align="right">5</td>
-<td align="left">Ide: 52, Pre: 41, Ver: 38, Goo: 16</td>
+<td align="left">Ide: 69, Ver: 33, Pre: 29, Goo: 15</td>
 </tr>
 <tr class="even">
 <td align="left">color</td>
@@ -2303,7 +2285,7 @@ skim(descriptiveDiamonds)</code></pre>
 <td align="right">1</td>
 <td align="left">TRUE</td>
 <td align="right">7</td>
-<td align="left">E: 36, G: 31, F: 26, H: 23</td>
+<td align="left">G: 34, H: 28, E: 27, F: 24</td>
 </tr>
 <tr class="odd">
 <td align="left">clarity</td>
@@ -2311,7 +2293,7 @@ skim(descriptiveDiamonds)</code></pre>
 <td align="right">1</td>
 <td align="left">TRUE</td>
 <td align="right">8</td>
-<td align="left">SI1: 34, VS1: 28, SI2: 27, VS2: 27</td>
+<td align="left">SI1: 40, VS2: 37, SI2: 21, VS1: 19</td>
 </tr>
 <tr class="even">
 <td align="left">colorBestF</td>
@@ -2319,7 +2301,7 @@ skim(descriptiveDiamonds)</code></pre>
 <td align="right">1</td>
 <td align="left">FALSE</td>
 <td align="right">2</td>
-<td align="left">1: : 78, 0: : 72</td>
+<td align="left">0: : 81, 1: : 69</td>
 </tr>
 </tbody>
 </table>
@@ -2346,101 +2328,101 @@ skim(descriptiveDiamonds)</code></pre>
 <td align="right">11</td>
 <td align="right">0.93</td>
 <td align="right">0.82</td>
-<td align="right">0.53</td>
-<td align="right">0.23</td>
-<td align="right">0.40</td>
-<td align="right">0.70</td>
-<td align="right">1.08</td>
-<td align="right">2.58</td>
+<td align="right">0.54</td>
+<td align="right">0.25</td>
+<td align="right">0.39</td>
+<td align="right">0.67</td>
+<td align="right">1.06</td>
+<td align="right">2.53</td>
 <td align="left">▇▅▂▁▁</td>
 </tr>
 <tr class="even">
 <td align="left">depth</td>
 <td align="right">0</td>
 <td align="right">1.00</td>
-<td align="right">61.44</td>
-<td align="right">1.49</td>
-<td align="right">56.50</td>
-<td align="right">60.80</td>
-<td align="right">61.65</td>
-<td align="right">62.27</td>
-<td align="right">64.50</td>
-<td align="left">▁▁▅▇▂</td>
+<td align="right">61.87</td>
+<td align="right">1.33</td>
+<td align="right">56.30</td>
+<td align="right">61.23</td>
+<td align="right">61.95</td>
+<td align="right">62.60</td>
+<td align="right">66.90</td>
+<td align="left">▁▂▇▃▁</td>
 </tr>
 <tr class="odd">
 <td align="left">table</td>
 <td align="right">0</td>
 <td align="right">1.00</td>
-<td align="right">57.89</td>
-<td align="right">2.49</td>
+<td align="right">57.33</td>
+<td align="right">2.30</td>
 <td align="right">53.00</td>
 <td align="right">56.00</td>
-<td align="right">58.00</td>
+<td align="right">57.00</td>
 <td align="right">59.00</td>
-<td align="right">65.00</td>
-<td align="left">▃▇▇▂▁</td>
+<td align="right">70.00</td>
+<td align="left">▇▇▂▁▁</td>
 </tr>
 <tr class="even">
 <td align="left">price</td>
 <td align="right">0</td>
 <td align="right">1.00</td>
-<td align="right">4202.76</td>
-<td align="right">4467.12</td>
-<td align="right">421.00</td>
-<td align="right">936.00</td>
-<td align="right">2387.00</td>
-<td align="right">5421.00</td>
-<td align="right">18041.00</td>
+<td align="right">4356.75</td>
+<td align="right">4876.03</td>
+<td align="right">394.00</td>
+<td align="right">895.50</td>
+<td align="right">2051.50</td>
+<td align="right">5808.75</td>
+<td align="right">18674.00</td>
 <td align="left">▇▂▁▁▁</td>
 </tr>
 <tr class="odd">
 <td align="left">x</td>
 <td align="right">0</td>
 <td align="right">1.00</td>
-<td align="right">5.76</td>
-<td align="right">1.19</td>
-<td align="right">3.95</td>
-<td align="right">4.74</td>
-<td align="right">5.70</td>
-<td align="right">6.52</td>
-<td align="right">9.08</td>
-<td align="left">▇▆▇▂▁</td>
+<td align="right">5.74</td>
+<td align="right">1.21</td>
+<td align="right">4.10</td>
+<td align="right">4.65</td>
+<td align="right">5.66</td>
+<td align="right">6.54</td>
+<td align="right">8.68</td>
+<td align="left">▇▅▅▂▂</td>
 </tr>
 <tr class="even">
 <td align="left">y</td>
 <td align="right">0</td>
 <td align="right">1.00</td>
-<td align="right">5.76</td>
-<td align="right">1.18</td>
-<td align="right">3.97</td>
-<td align="right">4.75</td>
-<td align="right">5.72</td>
-<td align="right">6.54</td>
-<td align="right">9.01</td>
-<td align="left">▇▆▆▂▁</td>
+<td align="right">5.74</td>
+<td align="right">1.20</td>
+<td align="right">4.12</td>
+<td align="right">4.66</td>
+<td align="right">5.62</td>
+<td align="right">6.53</td>
+<td align="right">8.59</td>
+<td align="left">▇▅▅▂▂</td>
 </tr>
 <tr class="odd">
 <td align="left">z</td>
 <td align="right">0</td>
 <td align="right">1.00</td>
-<td align="right">3.53</td>
-<td align="right">0.72</td>
-<td align="right">2.40</td>
-<td align="right">2.93</td>
-<td align="right">3.53</td>
-<td align="right">4.05</td>
-<td align="right">5.33</td>
-<td align="left">▇▆▆▃▂</td>
+<td align="right">3.55</td>
+<td align="right">0.76</td>
+<td align="right">2.43</td>
+<td align="right">2.86</td>
+<td align="right">3.41</td>
+<td align="right">4.08</td>
+<td align="right">5.60</td>
+<td align="left">▇▆▅▃▂</td>
 </tr>
 <tr class="even">
 <td align="left">colorBest</td>
 <td align="right">0</td>
 <td align="right">1.00</td>
-<td align="right">0.52</td>
+<td align="right">0.46</td>
 <td align="right">0.50</td>
 <td align="right">0.00</td>
 <td align="right">0.00</td>
-<td align="right">1.00</td>
+<td align="right">0.00</td>
 <td align="right">1.00</td>
 <td align="right">1.00</td>
 <td align="left">▇▁▁▁▇</td>
@@ -2540,7 +2522,7 @@ skim_without_charts(descriptiveDiamonds)</code></pre>
 <td align="right">1</td>
 <td align="left">TRUE</td>
 <td align="right">5</td>
-<td align="left">Ide: 52, Pre: 41, Ver: 38, Goo: 16</td>
+<td align="left">Ide: 69, Ver: 33, Pre: 29, Goo: 15</td>
 </tr>
 <tr class="even">
 <td align="left">color</td>
@@ -2548,7 +2530,7 @@ skim_without_charts(descriptiveDiamonds)</code></pre>
 <td align="right">1</td>
 <td align="left">TRUE</td>
 <td align="right">7</td>
-<td align="left">E: 36, G: 31, F: 26, H: 23</td>
+<td align="left">G: 34, H: 28, E: 27, F: 24</td>
 </tr>
 <tr class="odd">
 <td align="left">clarity</td>
@@ -2556,7 +2538,7 @@ skim_without_charts(descriptiveDiamonds)</code></pre>
 <td align="right">1</td>
 <td align="left">TRUE</td>
 <td align="right">8</td>
-<td align="left">SI1: 34, VS1: 28, SI2: 27, VS2: 27</td>
+<td align="left">SI1: 40, VS2: 37, SI2: 21, VS1: 19</td>
 </tr>
 <tr class="even">
 <td align="left">colorBestF</td>
@@ -2564,7 +2546,7 @@ skim_without_charts(descriptiveDiamonds)</code></pre>
 <td align="right">1</td>
 <td align="left">FALSE</td>
 <td align="right">2</td>
-<td align="left">1: : 78, 0: : 72</td>
+<td align="left">0: : 81, 1: : 69</td>
 </tr>
 </tbody>
 </table>
@@ -2590,94 +2572,94 @@ skim_without_charts(descriptiveDiamonds)</code></pre>
 <td align="right">11</td>
 <td align="right">0.93</td>
 <td align="right">0.82</td>
-<td align="right">0.53</td>
-<td align="right">0.23</td>
-<td align="right">0.40</td>
-<td align="right">0.70</td>
-<td align="right">1.08</td>
-<td align="right">2.58</td>
+<td align="right">0.54</td>
+<td align="right">0.25</td>
+<td align="right">0.39</td>
+<td align="right">0.67</td>
+<td align="right">1.06</td>
+<td align="right">2.53</td>
 </tr>
 <tr class="even">
 <td align="left">depth</td>
 <td align="right">0</td>
 <td align="right">1.00</td>
-<td align="right">61.44</td>
-<td align="right">1.49</td>
-<td align="right">56.50</td>
-<td align="right">60.80</td>
-<td align="right">61.65</td>
-<td align="right">62.27</td>
-<td align="right">64.50</td>
+<td align="right">61.87</td>
+<td align="right">1.33</td>
+<td align="right">56.30</td>
+<td align="right">61.23</td>
+<td align="right">61.95</td>
+<td align="right">62.60</td>
+<td align="right">66.90</td>
 </tr>
 <tr class="odd">
 <td align="left">table</td>
 <td align="right">0</td>
 <td align="right">1.00</td>
-<td align="right">57.89</td>
-<td align="right">2.49</td>
+<td align="right">57.33</td>
+<td align="right">2.30</td>
 <td align="right">53.00</td>
 <td align="right">56.00</td>
-<td align="right">58.00</td>
+<td align="right">57.00</td>
 <td align="right">59.00</td>
-<td align="right">65.00</td>
+<td align="right">70.00</td>
 </tr>
 <tr class="even">
 <td align="left">price</td>
 <td align="right">0</td>
 <td align="right">1.00</td>
-<td align="right">4202.76</td>
-<td align="right">4467.12</td>
-<td align="right">421.00</td>
-<td align="right">936.00</td>
-<td align="right">2387.00</td>
-<td align="right">5421.00</td>
-<td align="right">18041.00</td>
+<td align="right">4356.75</td>
+<td align="right">4876.03</td>
+<td align="right">394.00</td>
+<td align="right">895.50</td>
+<td align="right">2051.50</td>
+<td align="right">5808.75</td>
+<td align="right">18674.00</td>
 </tr>
 <tr class="odd">
 <td align="left">x</td>
 <td align="right">0</td>
 <td align="right">1.00</td>
-<td align="right">5.76</td>
-<td align="right">1.19</td>
-<td align="right">3.95</td>
-<td align="right">4.74</td>
-<td align="right">5.70</td>
-<td align="right">6.52</td>
-<td align="right">9.08</td>
+<td align="right">5.74</td>
+<td align="right">1.21</td>
+<td align="right">4.10</td>
+<td align="right">4.65</td>
+<td align="right">5.66</td>
+<td align="right">6.54</td>
+<td align="right">8.68</td>
 </tr>
 <tr class="even">
 <td align="left">y</td>
 <td align="right">0</td>
 <td align="right">1.00</td>
-<td align="right">5.76</td>
-<td align="right">1.18</td>
-<td align="right">3.97</td>
-<td align="right">4.75</td>
-<td align="right">5.72</td>
-<td align="right">6.54</td>
-<td align="right">9.01</td>
+<td align="right">5.74</td>
+<td align="right">1.20</td>
+<td align="right">4.12</td>
+<td align="right">4.66</td>
+<td align="right">5.62</td>
+<td align="right">6.53</td>
+<td align="right">8.59</td>
 </tr>
 <tr class="odd">
 <td align="left">z</td>
 <td align="right">0</td>
 <td align="right">1.00</td>
-<td align="right">3.53</td>
-<td align="right">0.72</td>
-<td align="right">2.40</td>
-<td align="right">2.93</td>
-<td align="right">3.53</td>
-<td align="right">4.05</td>
-<td align="right">5.33</td>
+<td align="right">3.55</td>
+<td align="right">0.76</td>
+<td align="right">2.43</td>
+<td align="right">2.86</td>
+<td align="right">3.41</td>
+<td align="right">4.08</td>
+<td align="right">5.60</td>
 </tr>
 <tr class="even">
 <td align="left">colorBest</td>
 <td align="right">0</td>
 <td align="right">1.00</td>
-<td align="right">0.52</td>
+<td align="right">0.46</td>
 <td align="right">0.50</td>
 <td align="right">0.00</td>
 <td align="right">0.00</td>
-<td align="right">1.00</td>
+<td align="right">0.00</td>
 <td align="right">1.00</td>
 <td align="right">1.00</td>
 </tr>
@@ -2746,7 +2728,7 @@ skim_without_charts(descriptiveDiamonds %&gt;% select(carat, cut, price))</code>
 <td align="right">1</td>
 <td align="left">TRUE</td>
 <td align="right">5</td>
-<td align="left">Ide: 52, Pre: 41, Ver: 38, Goo: 16</td>
+<td align="left">Ide: 69, Ver: 33, Pre: 29, Goo: 15</td>
 </tr>
 </tbody>
 </table>
@@ -2772,24 +2754,24 @@ skim_without_charts(descriptiveDiamonds %&gt;% select(carat, cut, price))</code>
 <td align="right">11</td>
 <td align="right">0.93</td>
 <td align="right">0.82</td>
-<td align="right">0.53</td>
-<td align="right">0.23</td>
-<td align="right">0.4</td>
-<td align="right">0.7</td>
-<td align="right">1.08</td>
-<td align="right">2.58</td>
+<td align="right">0.54</td>
+<td align="right">0.25</td>
+<td align="right">0.39</td>
+<td align="right">0.67</td>
+<td align="right">1.06</td>
+<td align="right">2.53</td>
 </tr>
 <tr class="even">
 <td align="left">price</td>
 <td align="right">0</td>
 <td align="right">1.00</td>
-<td align="right">4202.76</td>
-<td align="right">4467.12</td>
-<td align="right">421.00</td>
-<td align="right">936.0</td>
-<td align="right">2387.0</td>
-<td align="right">5421.00</td>
-<td align="right">18041.00</td>
+<td align="right">4356.75</td>
+<td align="right">4876.03</td>
+<td align="right">394.00</td>
+<td align="right">895.50</td>
+<td align="right">2051.50</td>
+<td align="right">5808.75</td>
+<td align="right">18674.00</td>
 </tr>
 </tbody>
 </table>
@@ -2809,13 +2791,13 @@ print(t1)</code></pre>
 ##                     Overall          
 ##   n                     150          
 ##   cut (%)                            
-##      Fair                 3 ( 2.0)   
-##      Good                16 (10.7)   
-##      Very Good           38 (25.3)   
-##      Premium             41 (27.3)   
-##      Ideal               52 (34.7)   
-##   carat (mean (SD))    0.82 (0.53)   
-##   price (mean (SD)) 4202.76 (4467.12)</code></pre>
+##      Fair                 4 ( 2.7)   
+##      Good                15 (10.0)   
+##      Very Good           33 (22.0)   
+##      Premium             29 (19.3)   
+##      Ideal               69 (46.0)   
+##   carat (mean (SD))    0.82 (0.54)   
+##   price (mean (SD)) 4356.75 (4876.03)</code></pre>
 <pre class="r"><code># stratification is pretty easy
 t1strata &lt;- CreateTableOne(vars = descriptiveVariables, 
                            data = descriptiveDiamonds, 
@@ -2824,15 +2806,15 @@ t1strata &lt;- CreateTableOne(vars = descriptiveVariables,
 print(t1strata)</code></pre>
 <pre><code>##                    Stratified by colorBestF
 ##                     0: not D/E/F      1: best D/E/F     p      test
-##   n                      72                78                      
-##   cut (%)                                                0.498     
-##      Fair                 2 ( 2.8)          1 ( 1.3)               
-##      Good                 5 ( 6.9)         11 (14.1)               
-##      Very Good           18 (25.0)         20 (25.6)               
-##      Premium             23 (31.9)         18 (23.1)               
-##      Ideal               24 (33.3)         28 (35.9)               
-##   carat (mean (SD))    0.95 (0.57)       0.71 (0.46)     0.007     
-##   price (mean (SD)) 4825.92 (4825.38) 3627.54 (4055.41)  0.101</code></pre>
+##   n                      81                69                      
+##   cut (%)                                                0.560     
+##      Fair                 2 ( 2.5)          2 ( 2.9)               
+##      Good                 6 ( 7.4)          9 (13.0)               
+##      Very Good           17 (21.0)         16 (23.2)               
+##      Premium             14 (17.3)         15 (21.7)               
+##      Ideal               42 (51.9)         27 (39.1)               
+##   carat (mean (SD))    0.89 (0.59)       0.75 (0.48)     0.135     
+##   price (mean (SD)) 4557.68 (4972.55) 4120.88 (4785.65)  0.586</code></pre>
 <pre class="r"><code>t1strata &lt;- CreateTableOne(vars = descriptiveVariables, 
                            data = descriptiveDiamonds, 
                            factorVars = catVars, 
@@ -2843,15 +2825,15 @@ print(t1strata)</code></pre>
 tmp &lt;- print(t1strata)</code></pre>
 <pre><code>##                    Stratified by colorBestF
 ##                     Overall           0: not D/E/F      1: best D/E/F    
-##   n                     150                72                78          
+##   n                     150                81                69          
 ##   cut (%)                                                                
-##      Fair                 3 ( 2.0)          2 ( 2.8)          1 ( 1.3)   
-##      Good                16 (10.7)          5 ( 6.9)         11 (14.1)   
-##      Very Good           38 (25.3)         18 (25.0)         20 (25.6)   
-##      Premium             41 (27.3)         23 (31.9)         18 (23.1)   
-##      Ideal               52 (34.7)         24 (33.3)         28 (35.9)   
-##   carat (mean (SD))    0.82 (0.53)       0.95 (0.57)       0.71 (0.46)   
-##   price (mean (SD)) 4202.76 (4467.12) 4825.92 (4825.38) 3627.54 (4055.41)</code></pre>
+##      Fair                 4 ( 2.7)          2 ( 2.5)          2 ( 2.9)   
+##      Good                15 (10.0)          6 ( 7.4)          9 (13.0)   
+##      Very Good           33 (22.0)         17 (21.0)         16 (23.2)   
+##      Premium             29 (19.3)         14 (17.3)         15 (21.7)   
+##      Ideal               69 (46.0)         42 (51.9)         27 (39.1)   
+##   carat (mean (SD))    0.82 (0.54)       0.89 (0.59)       0.75 (0.48)   
+##   price (mean (SD)) 4356.75 (4876.03) 4557.68 (4972.55) 4120.88 (4785.65)</code></pre>
 <pre class="r"><code>xlsx::write.xlsx(tmp, 
                  file = here(&quot;output&quot;, &quot;table1diamonds.xlsx&quot;), 
                  sheetName = &quot;Raw Output&quot;)
@@ -2874,42 +2856,42 @@ library(desctable)</code></pre>
 ##     chisq.test, fisher.test, IQR</code></pre>
 <pre class="r"><code>descriptiveDiamonds %&gt;%
   desctable()</code></pre>
-<pre><code>##                                N          %   Median       IQR
-## 1                     number 150         NA       NA        NA
-## 2                      carat 139         NA    0.700    0.6750
-## 3                        cut 150         NA       NA        NA
-## 4                  cut: Fair   3  2.0000000       NA        NA
-## 5                  cut: Good  16 10.6666667       NA        NA
-## 6             cut: Very Good  38 25.3333333       NA        NA
-## 7               cut: Premium  41 27.3333333       NA        NA
-## 8                 cut: Ideal  52 34.6666667       NA        NA
-## 9                      color 150         NA       NA        NA
-## 10                  color: D  16 10.6666667       NA        NA
-## 11                  color: E  36 24.0000000       NA        NA
-## 12                  color: F  26 17.3333333       NA        NA
-## 13                  color: G  31 20.6666667       NA        NA
-## 14                  color: H  23 15.3333333       NA        NA
-## 15                  color: I  10  6.6666667       NA        NA
-## 16                  color: J   8  5.3333333       NA        NA
-## 17                   clarity 150         NA       NA        NA
-## 18               clarity: I1   1  0.6666667       NA        NA
-## 19              clarity: SI2  27 18.0000000       NA        NA
-## 20              clarity: SI1  34 22.6666667       NA        NA
-## 21              clarity: VS2  27 18.0000000       NA        NA
-## 22              clarity: VS1  28 18.6666667       NA        NA
-## 23             clarity: VVS2  16 10.6666667       NA        NA
-## 24             clarity: VVS1  12  8.0000000       NA        NA
-## 25               clarity: IF   5  3.3333333       NA        NA
-## 26                     depth 150         NA   61.650    1.4750
-## 27                     table 150         NA   58.000    3.0000
-## 28                     price 150         NA 2387.000 4485.0000
-## 29                         x 150         NA    5.705    1.7825
-## 30                         y 150         NA    5.715    1.7925
-## 31                         z 150         NA    3.530    1.1175
-## 32                 colorBest 150         NA    1.000    1.0000
-## 33                colorBestF 150         NA       NA        NA
-## 34  colorBestF: 0: not D/E/F  72 48.0000000       NA        NA
-## 35 colorBestF: 1: best D/E/F  78 52.0000000       NA        NA</code></pre>
+<pre><code>##                                N         %   Median       IQR
+## 1                     number 150        NA       NA        NA
+## 2                      carat 139        NA    0.670    0.6700
+## 3                        cut 150        NA       NA        NA
+## 4                  cut: Fair   4  2.666667       NA        NA
+## 5                  cut: Good  15 10.000000       NA        NA
+## 6             cut: Very Good  33 22.000000       NA        NA
+## 7               cut: Premium  29 19.333333       NA        NA
+## 8                 cut: Ideal  69 46.000000       NA        NA
+## 9                      color 150        NA       NA        NA
+## 10                  color: D  18 12.000000       NA        NA
+## 11                  color: E  27 18.000000       NA        NA
+## 12                  color: F  24 16.000000       NA        NA
+## 13                  color: G  34 22.666667       NA        NA
+## 14                  color: H  28 18.666667       NA        NA
+## 15                  color: I  13  8.666667       NA        NA
+## 16                  color: J   6  4.000000       NA        NA
+## 17                   clarity 150        NA       NA        NA
+## 18               clarity: I1   5  3.333333       NA        NA
+## 19              clarity: SI2  21 14.000000       NA        NA
+## 20              clarity: SI1  40 26.666667       NA        NA
+## 21              clarity: VS2  37 24.666667       NA        NA
+## 22              clarity: VS1  19 12.666667       NA        NA
+## 23             clarity: VVS2  13  8.666667       NA        NA
+## 24             clarity: VVS1   8  5.333333       NA        NA
+## 25               clarity: IF   7  4.666667       NA        NA
+## 26                     depth 150        NA   61.950    1.3750
+## 27                     table 150        NA   57.000    3.0000
+## 28                     price 150        NA 2051.500 4913.2500
+## 29                         x 150        NA    5.660    1.8925
+## 30                         y 150        NA    5.615    1.8725
+## 31                         z 150        NA    3.410    1.2125
+## 32                 colorBest 150        NA    0.000    1.0000
+## 33                colorBestF 150        NA       NA        NA
+## 34  colorBestF: 0: not D/E/F  81 54.000000       NA        NA
+## 35 colorBestF: 1: best D/E/F  69 46.000000       NA        NA</code></pre>
 <pre class="r"><code>descOutput &lt;- 
   descriptiveDiamonds %&gt;%
   group_by(colorBestF) %&gt;%
@@ -2918,24 +2900,24 @@ library(desctable)</code></pre>
 <pre><code>## Adding missing grouping variables: `colorBestF`</code></pre>
 <pre><code>## select: dropped 9 variables (number, color, clarity, depth, table, …)</code></pre>
 <pre class="r"><code>cbind(descOutput[[1]], descOutput[[2]], descOutput[[3]])</code></pre>
-<pre><code>##              Variables  N         %  Median      IQR  N         %   Median
-## 1              **cut** 72        NA      NA       NA 78        NA       NA
-## 2      **cut**: *Fair*  2  2.777778      NA       NA  1  1.282051       NA
-## 3      **cut**: *Good*  5  6.944444      NA       NA 11 14.102564       NA
-## 4 **cut**: *Very Good* 18 25.000000      NA       NA 20 25.641026       NA
-## 5   **cut**: *Premium* 23 31.944444      NA       NA 18 23.076923       NA
-## 6     **cut**: *Ideal* 24 33.333333      NA       NA 28 35.897436       NA
-## 7                carat 67        NA    0.96    0.815 72        NA    0.525
-## 8                price 72        NA 3544.00 5101.250 78        NA 1857.000
-##         IQR
-## 1        NA
-## 2        NA
-## 3        NA
-## 4        NA
-## 5        NA
-## 6        NA
-## 7    0.6125
-## 8 3869.0000</code></pre>
+<pre><code>##              Variables  N         %   Median      IQR  N         %  Median
+## 1              **cut** 81        NA       NA       NA 69        NA      NA
+## 2      **cut**: *Fair*  2  2.469136       NA       NA  2  2.898551      NA
+## 3      **cut**: *Good*  6  7.407407       NA       NA  9 13.043478      NA
+## 4 **cut**: *Very Good* 17 20.987654       NA       NA 16 23.188406      NA
+## 5   **cut**: *Premium* 14 17.283951       NA       NA 15 21.739130      NA
+## 6     **cut**: *Ideal* 42 51.851852       NA       NA 27 39.130435      NA
+## 7                carat 74        NA    0.715    0.745 65        NA    0.53
+## 8                price 81        NA 2999.000 4522.000 69        NA 1614.00
+##       IQR
+## 1      NA
+## 2      NA
+## 3      NA
+## 4      NA
+## 5      NA
+## 6      NA
+## 7    0.61
+## 8 5289.00</code></pre>
 <pre class="r"><code>naniar::miss_var_summary(descriptiveDiamonds)</code></pre>
 <pre><code>## # A tibble: 13 x 3
 ##    variable   n_miss pct_miss
@@ -2958,7 +2940,16 @@ library(desctable)</code></pre>
 <div id="modeling" class="section level3">
 <h3>#8 - Modeling</h3>
 <ul>
-<li><a href="https://uvastatlab.github.io/phdplus/index.html">Fantastic resource</a> from UVa – I am going to use this to talk about modeling. I don’t feel like I could do it justice on my own (I haven’t done much with modeling in R) and so will err on the side of finding good resources.</li>
+<li><a href="https://uvastatlab.github.io/phdplus/index.html">Fantastic starting resource</a> from UVa – I am going to use this to talk about modeling. I don’t feel like I could do it justice on my own (I haven’t done much with modeling in R) and so will err on the side of finding good resources.
+<ul>
+<li>note that the <code>lm()</code> function call is somewhat outdated now – see below resources on tidymodels, parsnip, and broom</li>
+</ul></li>
+<li>More advanced modeling resources
+<ul>
+<li><a href="https://www.tidymodels.org/">tidymodels</a> is at the forefront of standardizing how modeling and machine learning works in R. Like tidyverse, tidymodels is made up of many <a href="https://www.tidymodels.org/packages/">packages</a></li>
+<li>Intro to <a href="https://www.tidyverse.org/blog/2018/11/parsnip-0-0-1/">parsnip</a> package (one of the tidymodels suite)</li>
+<li>Intro post on linear reg using tidymodels <a href="https://parsnip.tidymodels.org/reference/linear_reg.html">here</a></li>
+</ul></li>
 <li><a href="https://www.econometrics-with-r.org/index.html">Econometrics with R</a> textbook. Amazing!</li>
 </ul>
 </div>
@@ -2985,6 +2976,7 @@ library(desctable)</code></pre>
 <li>Intro to <code>naniar</code> package <a href="https://allisonhorst.shinyapps.io/missingexplorer/#section-introduction">here</a></li>
 <li><em>Very good</em> <code>ggplot</code> intro by <a href="https://twitter.com/andrewheiss">Andrew Heiss</a> <a href="https://datavizm20.classes.andrewheiss.com/">here</a>. Also some <code>tidyverse</code> but not enough to fully understand it</li>
 <li>R studio cheatsheets <a href="https://rstudio.com/resources/cheatsheets/">here</a></li>
+<li><a href="https://www.tidyverse.org/learn/">Resources</a> for learning the tidyverse</li>
 <li><code>here</code> package <a href="https://github.com/jennybc/here_here">link</a></li>
 <li><code>modelsummary</code> package for outputting regression models. thread on its use <a href="https://twitter.com/VincentAB/status/1265794830682198016">here</a></li>
 <li>6 session R intro from UVa <a href="https://uvastatlab.github.io/phdplus/index.html">here</a></li>
