@@ -4,13 +4,16 @@
 data(diamonds)
 
 descriptiveDiamonds <- diamonds %>% 
-  dplyr::slice_sample(n=150) %>%
+  
+  #dplyr::slice_sample(n=150) %>%
+  
   rownames_to_column(var="number") %>%
   
   # introducing some NA's to make this more realistic
   mutate(carat = if_else(number %in% c(1,2,3,56,34,89,65,22,31,124,118), 
                          as.numeric(NA), 
                          carat), 
+         
          colorBest = if_else(condition = color %in% c("D", "E", "F"), 
                              true = 1, 
                              false = 0),
@@ -33,7 +36,7 @@ skim(descriptiveDiamonds)
 skim_without_charts(descriptiveDiamonds)
 
 # just a few variables
-skim_without_charts(descriptiveDiamonds %>% select(carat, cut, price))
+skim_without_charts(descriptiveDiamonds %>% group_by(colorBestF) %>% select(colorBestF, carat, cut, price))
 
 
 
@@ -43,7 +46,7 @@ skim_without_charts(descriptiveDiamonds %>% select(carat, cut, price))
 library(tableone)
 
 catVars <- c("cut")
-contVars <- c("carat", "price")
+contVars <- c("carat", "price", "x")
 descriptiveVariables <- c(catVars, contVars)
 
 t1 <- CreateTableOne(vars = descriptiveVariables, 
@@ -51,6 +54,8 @@ t1 <- CreateTableOne(vars = descriptiveVariables,
                      factorVars = catVars, 
                      includeNA = TRUE)
 print(t1)
+
+
 
 
 # stratification is pretty easy
@@ -92,12 +97,20 @@ descOutput <-
   select(cut, carat, price) %>%
   desctable() 
 
-cbind(descOutput[[1]], descOutput[[2]], descOutput[[3]])
+cbind(descOutput[[1]], descOutput[[2]] %>% rename(N_notBest = N) %>% mutate(`%` = round(`%`, digits=2)), descOutput[[3]])
 
 
 
 naniar::miss_var_summary(descriptiveDiamonds)
 # so much more in the naniar package! 
+
+
+descriptiveDiamonds %>%
+  group_by(colorBestF) %>%
+  summarise(meanCarat = mean(carat, na.rm=TRUE), 
+            propColorBest = mean(if_else(colorBestF=="1: best D/E/F", 1, 0)), 
+            var = propColorBest*(1-propColorBest))
+
 
 
 
