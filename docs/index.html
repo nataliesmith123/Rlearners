@@ -392,7 +392,7 @@ summary {
 
 <div id="section" class="section level1 tabset">
 <h1></h1>
-<p>Last Updated 07/20/2020</p>
+<p>Last Updated 07/27/2020</p>
 <p>This will be the R learners website for the summer! Most all of my resources will be posted here.</p>
 <p>Contact: Natalie Smith <a href="mailto:natsmith@live.unc.edu" class="email">natsmith@live.unc.edu</a></p>
 <div id="intro" class="section level2">
@@ -409,7 +409,7 @@ summary {
 <li><del>June 29: Continue plotting!</del></li>
 <li><del>July 6: More data management - joining/merging, transposing.</del></li>
 <li><del>July 13: Descriptive statistics</del></li>
-<li>July 20: Modeling - using outside resources</li>
+<li><del>July 20: Modeling - using outside resources</del></li>
 <li>July 27: Final week! I’ll be online for the usual 11-12ish hour and can review anything, help out with issues, etc.</li>
 </ul>
 <p>Some other things that we could have done but did not:</p>
@@ -963,26 +963,26 @@ aList[[&quot;poisson&quot;]] &lt;- rpois(n=sampleSize, lambda=2)
 # &#39;apply&#39; functions are a base R thing -- allow you you repeat a function over a list
 lapply(aList, mean)</code></pre>
 <pre><code>## $binomial
-## [1] 1.9
+## [1] 2.04
 ## 
 ## $normal
-## [1] 10.98183
+## [1] 10.12514
 ## 
 ## $gamma
-## [1] 1019.897
+## [1] 1008.949
 ## 
 ## $exponential
-## [1] 0.3442977
+## [1] 0.3669839
 ## 
 ## $poisson
-## [1] 2.14</code></pre>
+## [1] 1.82</code></pre>
 <pre class="r"><code>meanList &lt;- lapply(aList, mean)
 
 # $ operator will help you autocomplete -- can be helpful when we get into reg objects, etc. 
 meanList$binomial</code></pre>
-<pre><code>## [1] 1.9</code></pre>
+<pre><code>## [1] 2.04</code></pre>
 <pre class="r"><code>meanList[[&quot;binomial&quot;]]</code></pre>
-<pre><code>## [1] 1.9</code></pre>
+<pre><code>## [1] 2.04</code></pre>
 <pre class="r"><code># there are so many possibilities with lists
 # they can hold different kinds of objects, etc. etc.
 # whole wide world out there once you get the basics down!
@@ -1138,7 +1138,7 @@ base + geom_point(aes(color=carat))</code></pre>
 <li>Use <code>table()</code> or <code>xtabs()</code> to check your derived variables</li>
 <li>Recreate depth variable (see <code>?diamonds</code> for the formula)
 <ul>
-<li>ah!! <code>mean()</code> doesn’t work 😿</li>
+<li>ah!! <code>mean()</code> doesn’t work 😭</li>
 <li>this is because it’s not <a href="https://www.tidyverse.org/blog/2020/04/dplyr-1-0-0-rowwise/">vectorized</a></li>
 <li>try it two ways - manually creating mean, and using <code>rowwise()</code></li>
 </ul></li>
@@ -1783,7 +1783,10 @@ ggplot(data=diamondsMean,
 <li>violin plots</li>
 <li>dotplots (underutilized, I think!)</li>
 </ul></li>
-<li>can use <code>ggsave()</code> to save png, pdf, etc.</li>
+<li>can use <code>ggsave()</code> to save png, pdf, etc.
+<ul>
+<li>note that the R plot pane will auto-adjust based on size, so its best to work with the exported files and make sure those look the way you want them. nothing more frustrating than making something look good in the plot window but looking horrid when you export it.</li>
+</ul></li>
 </ul>
 <p>Additional plotting resources:</p>
 <ul>
@@ -1795,6 +1798,7 @@ ggplot(data=diamondsMean,
 <li>Can also use hexadecimal color codes in R - make sure to put in quotes</li>
 </ul></li>
 <li><em>Very good</em> <code>ggplot</code> intro by <a href="https://twitter.com/andrewheiss">Andrew Heiss</a> <a href="https://datavizm20.classes.andrewheiss.com/">here</a>. Also some <code>tidyverse</code> but not enough to fully understand it</li>
+<li>mapping aesthetics <a href="https://drive.google.com/file/d/1Dvul1p6TYH6gWJzZRwpE0YX1dO0hDF-b/view">cheat sheet</a></li>
 </ul>
 </div>
 <div id="more-data-management" class="section level3">

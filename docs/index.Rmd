@@ -43,7 +43,7 @@ This will be very casual -- kids, pets, eating are all okay! Interrupt me anytim
 + ~~June 29: Continue plotting!~~
 + ~~July 6: More data management - joining/merging, transposing.~~
 + ~~July 13: Descriptive statistics~~
-+ July 20: Modeling - using outside resources
++ ~~July 20: Modeling - using outside resources~~
 + July 27: Final week! I'll be online for the usual 11-12ish hour and can review anything, help out with issues, etc. 
 
 
@@ -398,7 +398,9 @@ Example plots to make:
 + Fun geoms
     + violin plots
     + dotplots (underutilized, I think!)
-+ can use `ggsave()` to save png, pdf, etc.     
++ can use `ggsave()` to save png, pdf, etc. 
+    +  note that the R plot pane will auto-adjust based on size, so its best to work with the exported files and make sure those look the way you want them. nothing more frustrating than making something look good in the plot window but looking horrid when you export it. 
+
     
 
 Additional plotting resources: 
@@ -409,7 +411,7 @@ Additional plotting resources:
     + R color names [here](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf). Can also type `colors()` to see all names. 
     + Can also use hexadecimal color codes in R - make sure to put in quotes
 + *Very good* `ggplot` intro by [Andrew Heiss](https://twitter.com/andrewheiss) [here](https://datavizm20.classes.andrewheiss.com/). Also some `tidyverse` but not enough to fully understand it
-
++ mapping aesthetics [cheat sheet](https://drive.google.com/file/d/1Dvul1p6TYH6gWJzZRwpE0YX1dO0hDF-b/view)
 
 ### #6 - More data management
 
